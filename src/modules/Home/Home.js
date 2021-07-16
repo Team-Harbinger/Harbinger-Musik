@@ -1,11 +1,11 @@
 import React from 'react';
-// import logo from '../../assets/logo';
+import AppLogo from '../../assets/applogo.svg';
 
 function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        {/*} <img src={logo} className="App-logo" alt="logo" /> */}
+        <img src={AppLogo} className="App-logo" alt="Harbinger Musik Logo" />
         <p>
           Harbinger Music
         </p>
