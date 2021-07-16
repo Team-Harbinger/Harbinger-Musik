@@ -1,4 +1,5 @@
 import React from 'react';
+// import image from '../../assets/logo';
 
 function Home() {
   return (
