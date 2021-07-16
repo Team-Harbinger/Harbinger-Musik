@@ -1,9 +1,10 @@
 import React from 'react';
-
+import AppLogo from '../assets/applogo.svg';
 const MainPage = () => {
     return (
         <div className="App">
             <header className="App-header">
+                <img src={AppLogo} alt="Harbinger Musik Logo" />
                 <p>
                     Harbinger Music
         </p>
