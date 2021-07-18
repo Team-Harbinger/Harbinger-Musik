@@ -1,0 +1,40 @@
+.About {
+  text-align: center;
+}
+
+.About-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  color: black;
+}
+
+.About-body {
+  color: black;
+}
+
+.About-link { /* Change this if theme gets updated */
+  color: #575757;
+}
+
+.flex-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.flex-row-container > .flex-row-item {
+    flex: 1.5 1 33%;
+}
+
+.flex-row-item:nth-child(even) {
+  background: #aaa;
+  border: 1px solid gray;
+  padding: 3rem;
+}
+
+.flex-row-item:nth-child(odd) {
+  flex: 1 0;
+}
