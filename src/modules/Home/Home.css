@@ -1,46 +1,46 @@
 .flex-row-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	/* border: 2px red solid; */
-	/* justify-content: flex-start; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* border: 2px red solid; */
+  /* justify-content: flex-start; */
 }
 
 .flex-column-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	/* border: 2px green solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px green solid; */
 }
 
 #discover-genres h2 {
-	font-weight: normal;
-	font-size: 3em;
+  font-weight: normal;
+  font-size: 3em;
 }
 
 #genre-list {
-	background-color: rgb(182, 182, 182);
-	width: 50%;
-	justify-content: space-evenly;
+  background-color: rgb(182, 182, 182);
+  width: 50%;
+  justify-content: space-evenly;
 }
 
 .genre {
-	position: relative;
-	margin-top: 1em;
-	/* width: 20%; */
-	/* border: 2px red solid; */
+  position: relative;
+  margin-top: 1em;
+  /* width: 20%; */
+  /* border: 2px red solid; */
 }
 
 .genre .genre-image-description {
-	font-size: 1.15em;
-	background-color: black;
-	color: white;
-	position: absolute;
-	right: 0px;
-	bottom: 4px;
+  font-size: 1.15em;
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: 0px;
+  bottom: 4px;
 }
 
 .genre-image {
-	width: 12em; 
-	height: auto;
+  width: 12em; 
+  height: auto;
 }
