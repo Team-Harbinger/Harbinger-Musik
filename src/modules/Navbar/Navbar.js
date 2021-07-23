@@ -27,15 +27,12 @@ class Navbar extends Component {
 
         <h1 className="navbar-logo">
           <img src={AppLogo} className="App-logo" alt="Harbinger Musik Logo" width="70" height="70" />
-          <i className="fab fa-react">
-          </i>
         </h1>
 
         <div className="search-container">
           <form action="/action_page.php">
             <input type="text" placeholder="" name="search"></input>
             <button type="submit"><img src={SearchIcon} className="Search-Icon" width="40" height="40" />
-              <i className="fa fa-search"></i>
             </button>
           </form>
         </div>
