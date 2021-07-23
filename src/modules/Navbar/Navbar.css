@@ -45,6 +45,7 @@
   font-weight:bold;
   padding:2px;
 }
+
 .fa-react {
   margin-left: 0.5rem;
   font-size: 1.6rem;
@@ -77,7 +78,7 @@
   color:#EEEEEE
 }
 
-/*coming soon*/
+/* coming soon */
 .nav-links-mobile{ 
   display:none
 }

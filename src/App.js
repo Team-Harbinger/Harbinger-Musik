@@ -5,7 +5,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './modules/Home/Home';
-import About from './modules/About/About'
+import About from './modules/About/About';
 
 function App() {
   return (
@@ -16,7 +16,6 @@ function App() {
         <Route path='/About' component={About} />
       </Switch>
     </Router>
-
   );
 }
 

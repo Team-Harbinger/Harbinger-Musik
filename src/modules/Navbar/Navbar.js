@@ -31,11 +31,11 @@ class Navbar extends Component {
           </i>
         </h1>
 
-        <div class="search-container">
+        <div className="search-container">
           <form action="/action_page.php">
             <input type="text" placeholder="" name="search"></input>
             <button type="submit"><img src={SearchIcon} className="Search-Icon" width="40" height="40" />
-              <i class="fa fa-search"></i>
+              <i className="fa fa-search"></i>
             </button>
           </form>
         </div>
