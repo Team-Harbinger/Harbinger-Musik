@@ -8,12 +8,17 @@
 }
 
 .navbar-logo{
+  transition: transform 1s ease-in-out;
   position:absolute;
   left: 50%;
   margin-left: -50px;  /* 50% of your logo width */
   display: block;
   justify-self: center;
   cursor: pointer;
+}
+
+.navbar-logo:hover{ 
+  transform:rotate(360deg);
 }
 
 .search-container{
