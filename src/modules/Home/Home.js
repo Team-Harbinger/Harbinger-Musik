@@ -6,7 +6,7 @@ function Home() {
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [genreData, setGenreData] = useState([]);
   if (!genreData.length) {
-    console.log(genreData)
+    console.log(genreData);
     let genres = [];
     // fetch genre images.
     fetch('https://api.napster.com/v2.2/genres?apikey=' + API_KEY)
@@ -37,6 +37,7 @@ function Home() {
       console.log("Error: unable to fetch genre data");
     });
   }
+
   let genreDOMElements = [];
   genreData.forEach(genre => {
     genreDOMElements.push(
@@ -46,10 +47,10 @@ function Home() {
       </div>
     )
   })
+
   return (
     <div className="Home">
       <div className="flex-column-container">
-        {/* place navbar here */}
         <div id="discover-genres" className="flex-column-container">
           <h2>Discover Music</h2>
           <div id="genre-list" className="flex-row-container">
