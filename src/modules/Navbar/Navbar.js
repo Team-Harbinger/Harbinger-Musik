@@ -2,7 +2,7 @@ import React from 'react';
 import { MenuItems } from "./MenuItems";
 import './Navbar.css';
 import AppLogo from '../../assets/applogo.svg';
-import SearchIcon from '../../assets/searchicon.svg';
+import Searchbar from './Searchbar.js';
 
 function Navbar() {
   return (
@@ -20,17 +20,10 @@ function Navbar() {
       </ul>
 
       <img src={AppLogo} className="navbar-logo" alt="Harbinger Musik Logo" width="70" height="70" />
-
-      <div className="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="" name="search"></input>
-          <button type="submit">
-            <img src={SearchIcon} className="Search-Icon" width="40" height="40" alt="search icon (click to search)" />
-          </button>
-        </form>
-      </div>
+      
+      <Searchbar />
     </nav>
   )
 }
 
-export default Navbar
+export default Navbar;
