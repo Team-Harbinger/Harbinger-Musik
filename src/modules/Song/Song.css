@@ -1,0 +1,75 @@
+.row {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  justify-content: center;
+}
+
+.col {
+  align-items: center;
+}
+
+.Song-details {
+  gap: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: -17%;
+}
+
+.image {
+  height: 170px;
+  width: 170px;
+  background-color: #555;
+}
+
+.song-info {
+  text-align: center;
+  align-items: center;
+}
+
+.flex-row-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row-container > .flex-row-item {
+  flex: 0 0 10;
+}
+
+.flex-row-item:nth-child(even) {
+  background: #aaa;
+  flex: 1.5 1 15%;
+}
+
+.Song-album {
+  align-items: center;
+  text-align: center;
+}
+
+.song-list {
+  background-color: rgb(182, 182, 182);
+  justify-content: space-evenly;
+}
+
+.play-button {
+  text-align: center;
+  align-items: center;
+}
+
+.play-button-image {
+  background-color: #555;
+  color: rgb(182, 182, 182);
+}
+
+.song {
+  gap: 15%;
+  margin-top: 2%;
+  text-align: center;
+  align-items: center;
+}
+
+p { 
+  margin: 0
+}
