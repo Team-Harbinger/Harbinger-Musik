@@ -34,7 +34,7 @@ function Song() {
     };
 
     // Hardcoded for now
-    let trackID = 'tra.5156528';
+    let trackID = 'tra.327023395';
 
     // fetch track using track ID.
     fetch('http://api.napster.com/v2.2/tracks/'+ trackID + '?apikey=' + API_KEY)
@@ -52,56 +52,60 @@ function Song() {
         console.log(songDetails);
 
         // Fetch from albums API
-        fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY)
-          .then(function (response) {
-            // Albums API successful response
-            console.log("Albums API fetched successfully");
-            return response.json();
-          })
-          .then(function (response) {
-            console.log(response);
-
-            songDetails.released = (new Date(response.albums[0].released)).toDateString();
-            songDetails.label = response.albums[0].label;
-
-            console.log(songDetails);
-
-            console.log(response.albums[0].links.images.href);
-
-            // Fetch data from (albums) images API
-            fetch(response.albums[0].links.images.href + '?apikey=' +  API_KEY)
-              .then(function (response) {
-                // (Albums) images API successful response
-                console.log("Images API fetched successfully");
-                return response.json();
-              })
-              .then(function (response) {
-                console.log(response);
-
-                songDetails.songImageSrc = response.images[0].url;
-
-                console.log(songDetails);
-              })
-              .catch(function (err) {
-                // Error fetching image from album API
-                console.log("Error: unable to fetch albums API's image");
-              });
-          })
-          .catch(function (err) {
-            // Error fetching albums API data
-            console.log("Error: unable to fetch albums API data");
-          });
-
-          setSongData([songDetails]);
+        return fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY);
+      }).then(function (response) {
+        // Albums API successful response
+        console.log("Albums API fetched successfully");
+        return response.json();
       })
+      .then(function (response) {
+        console.log(response);
+
+        songDetails.released = (new Date(response.albums[0].released)).toDateString();
+        songDetails.label = response.albums[0].label;
+
+        console.log(songDetails);
+
+        console.log(response.albums[0].links.images.href);
+
+        // Fetch data from (albums) images API
+        return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
+      }).then(function (response) {
+        // (Albums) images API successful response
+        console.log("Images API fetched successfully");
+        return response.json();
+      })
+      .then(function (response) {
+        console.log(response);
+
+        songDetails.songImageSrc = response.images[0].url;
+
+        console.log(songDetails);
+        setSongData([songDetails]);
+      })
+      .catch(function (err) {
+        // Error fetching image from API
+        console.log("Error: unable to fetch data from one or more APIs");
+      });
+      /*
+      .catch(function (err) {
+        // Error fetching image from album API
+        console.log("Error: unable to fetch albums API's image");
+      });
+      .catch(function (err) {
+        // Error fetching albums API data
+        console.log("Error: unable to fetch albums API data");
+      });
       .catch(function (err) {
         // Error fetching tracks API data
         console.log("Error: unable to fetch tracks API data");
       });
+      */
   }
 
   let songDetailsDOMElement = [];
   songData.forEach(song => {
+    console.log('updated DOM');
     songDetailsDOMElement.push(
       <div className="Song-details row">
         <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className="image col" />
