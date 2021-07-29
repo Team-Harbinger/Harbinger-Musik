@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Song.css';
-import play_button_asset from '../../assets/play_button.png';
+import PlayButton from '../PlayButton/PlayButton';
 
 function Song() {
 
@@ -24,9 +24,12 @@ function Song() {
   // From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
 
   // Hardcoded for now
-  let trackID = 'tra.10381859'; // Eminem - Kamikaze
+  let trackID = 'tra.327023393';
+  // tra.327023393 - Kamikaze Eminem
   // tra.549084779 - Astronaut
   // tra.459083355 - Body Like A Back Road by Sam Hunt
+  // tra.524675774 - RAAAAAAAAAAAAAAAAUUUUUUUL
+  // WARNING: AUDIO DOES NOT PLAY FOR 50 CENT
   // tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
   
   // Song Details
@@ -141,8 +144,7 @@ function Song() {
     songListDOMElement.push(
       <div className="song row">
         <div className="play-button col">
-          <img src={play_button_asset} alt="Play Button" className="play-button-image" />
-          <div className="powered">Powered by Napster</div>
+          <PlayButton previewProp={track.trackPreviewSrc} />
         </div>
         <div className="song-name col">
           {track.trackIndex + '. ' + track.trackName}
