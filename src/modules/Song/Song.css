@@ -18,8 +18,6 @@
 }
 
 .image {
-  height: 170px;
-  width: 170px;
   background-color: #555;
 }
 
@@ -45,7 +43,6 @@
 }
 
 .Song-album {
-  align-items: center;
   text-align: center;
 }
 
@@ -54,21 +51,25 @@
   justify-content: space-evenly;
 }
 
+.song-name {
+  text-align: left;
+}
+
 .play-button {
   text-align: center;
   align-items: center;
 }
 
 .play-button-image {
-  background-color: #555;
-  color: rgb(182, 182, 182);
+  width: 50px;
+  height: 50px;
 }
 
 .song {
   gap: 15%;
-  margin-top: 2%;
-  text-align: center;
-  align-items: center;
+  margin-top: 5%;
+  /* text-align: center;
+  align-items: center; */
 }
 
 p { 
