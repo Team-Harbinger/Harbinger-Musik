@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react'; 
+import './Searchbar.css';
 import SearchIcon from '../../assets/searchicon.svg';
 
 function Searchbar() {
@@ -17,7 +18,6 @@ function Searchbar() {
             <img src={SearchIcon} className="Search-Icon" width="40" height="40" alt="search icon (click to search)" />
           </button>
         </a>
-        
     </div>
   )
 }

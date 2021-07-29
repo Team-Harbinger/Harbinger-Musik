@@ -16,36 +16,6 @@
   /* cursor: pointer; */
 }
 
-.search-container{
-  position:relative;
-}
-
-.NavbarItems .search-container input{
-  display:flex;
-  justify-content: left;
-  align-items: center;
-  padding: 20px 10px;
-  background: rgb(126, 124, 124);
-  font-size: 17px;
-  border: solid grey;
-  cursor: pointer;
-}
-
-.NavbarItems .search-container button{
-  position:absolute;
-  right: 20px;
-  top: 10px;
-  border:none;
-  background:none;
-  height:30px;
-  width:30px;
-  border-radius:100%;
-  outline:none;
-  text-align:right;
-  font-weight:bold;
-  padding:2px;
-}
-
 .nav-menu{
   display: grid;
   grid-template-columns: repeat(5,auto);
