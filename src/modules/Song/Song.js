@@ -5,7 +5,8 @@ import './Song.css';
 function Song() {
 
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
-  const [songData, setSongData] = useState([]);
+  const [songDetailsData, setSongDetailsData] = useState([]);
+  const [songListData, setSongListData] = useState([]);
 
 
   // For Song Details:
@@ -19,22 +20,24 @@ function Song() {
 
 
   // For Song Album:
-  // From albums API, search for tracks -> list of tracks each has: (song) name, previewURL
+  // From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
 
+  // Hardcoded for now
+  let trackID = 'tra.327023395';
+  
   // Song Details
-  if (!songData.length) {
+  if (!songDetailsData.length) {
 
-    console.log(songData);
+    console.log(songDetailsData);
     let songDetails =  {
       songImageSrc: null,
       songName: null,
       artistName: null,
       released: null,
       label: null,
+      tracks: null,
     };
-
-    // Hardcoded for now
-    let trackID = 'tra.327023395';
+    let songList = [];
 
     // fetch track using track ID.
     fetch('http://api.napster.com/v2.2/tracks/'+ trackID + '?apikey=' + API_KEY)
@@ -63,10 +66,9 @@ function Song() {
 
         songDetails.released = (new Date(response.albums[0].released)).toDateString();
         songDetails.label = response.albums[0].label;
+        songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
 
         console.log(songDetails);
-
-        console.log(response.albums[0].links.images.href);
 
         // Fetch data from (albums) images API
         return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
@@ -81,31 +83,37 @@ function Song() {
         songDetails.songImageSrc = response.images[0].url;
 
         console.log(songDetails);
-        setSongData([songDetails]);
+        setSongDetailsData([songDetails]);
+
+        // Fetch the list of tracks now
+        return fetch(songDetails.tracks);
+      })
+      .then(function (response) {
+        // Albums tracks API successful response
+        console.log("Tracks have been fetched successfully.");
+        return response.json();
+      })
+      .then(function (response) {
+        // For every track in an album 
+        // create an object and push on to songList array
+        response.tracks.forEach(track => {
+          songList.push({
+            trackName: track.name,
+            trackPreviewSrc: track.previewURL,
+          })
+        });
+        console.log(songList);
+        setSongListData(songList);
       })
       .catch(function (err) {
         // Error fetching image from API
         console.log("Error: unable to fetch data from one or more APIs");
       });
-      /*
-      .catch(function (err) {
-        // Error fetching image from album API
-        console.log("Error: unable to fetch albums API's image");
-      });
-      .catch(function (err) {
-        // Error fetching albums API data
-        console.log("Error: unable to fetch albums API data");
-      });
-      .catch(function (err) {
-        // Error fetching tracks API data
-        console.log("Error: unable to fetch tracks API data");
-      });
-      */
   }
 
   let songDetailsDOMElement = [];
-  songData.forEach(song => {
-    console.log('updated DOM');
+  songDetailsData.forEach(song => {
+    console.log('updated song details');
     songDetailsDOMElement.push(
       <div className="Song-details row">
         <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className="image col" />
@@ -122,6 +130,22 @@ function Song() {
     )}
   );
 
+  let songListDOMElement = [];
+  songListData.forEach(track => { 
+    console.log('updated song list');
+    songListDOMElement.push(
+      <div className="song row">
+        <div className="play-button col">
+          <div className="play-button-image">Play Button Here</div>
+          <div className="powered">Powered by Napster</div>
+        </div>
+        <div className="song-name col">
+          {track.trackName}
+        </div>
+      </div>
+    )
+  });
+
   return(
     // Change to ids
     <div className="Song">
@@ -133,31 +157,7 @@ function Song() {
         <div className="song-list-container flex-row-container">
           <div className="flex-row-item"></div>
           <div className="song-list flex-row-item">
-          
-            <div className="song row">
-              <div className="play-button col">
-                <div className="play-button-image">Play Button Here</div>
-                <div className="powered">Powered by Napster</div>
-              </div>
-              <div className="song-name col">1. Levitating (feat. DaBaby)</div>
-            </div>
-            
-            <div className="song row">
-              <div className="play-button col">
-                <div className="play-button-image">Play Button Here</div>
-                <div className="powered">Powered by Napster</div>
-              </div>
-              <div className="song-name col">1. Levitating (feat. DaBaby)</div>
-            </div>
-
-            <div className="song row">
-              <div className="play-button col">
-                <div className="play-button-image">Play Button Here</div>
-                <div className="powered">Powered by Napster</div>
-              </div>
-              <div className="song-name col">1. Levitating (feat. DaBaby)</div>
-            </div>
-            
+            {songListDOMElement}
           </div>
           <div className="flex-row-item"></div>
         </div>
