@@ -46,11 +46,6 @@
   padding:2px;
 }
 
-.fa-react {
-  margin-left: 0.5rem;
-  font-size: 1.6rem;
-}
-
 .nav-menu{
   display: grid;
   grid-template-columns: repeat(5,auto);
@@ -74,15 +69,7 @@
   transition: all 0.2s ease-out;
 }
 
-.fa-bars{
-  color:#EEEEEE
-}
-
 /* coming soon */
 .nav-links-mobile{ 
   display:none
-}
-
-.menu-icon{
-  display:none;
 }
