@@ -61,7 +61,7 @@ function Song() {
           .then(function (response) {
             console.log(response);
 
-            songDetails.released = response.albums[0].released;
+            songDetails.released = (new Date(response.albums[0].released)).toDateString();
             songDetails.label = response.albums[0].label;
 
             console.log(songDetails);
