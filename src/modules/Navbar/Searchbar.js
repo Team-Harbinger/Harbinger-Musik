@@ -15,7 +15,7 @@ function Searchbar() {
       <input type="text" placeholder="" name="search" onChange={(handleInputChange)} value={searchString} />
         <a href={"/search?query=" + searchString}>
           <button type="submit">
-            <img src={SearchIcon} className="Search-Icon" width="40" height="40" alt="search icon (click to search)" />
+            <img src={SearchIcon} className="search-icon" alt="search icon (click to search)" />
           </button>
         </a>
     </div>

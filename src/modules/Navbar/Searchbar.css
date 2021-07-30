@@ -1,9 +1,9 @@
-.search-container{
-  position:relative;
+.search-container {
+  position: relative;
 }
   
-.search-container input{
-  display:flex;
+.search-container input {
+  display: flex;
   justify-content: left;
   align-items: center;
   padding: 20px 10px;
@@ -13,17 +13,22 @@
   cursor: pointer;
 }
 
-.search-container button{
-  position:absolute;
+.search-container button {
+  position: absolute;
   right: 20px;
   top: 10px;
-  border:none;
-  background:none;
-  height:30px;
-  width:30px;
-  border-radius:100%;
-  outline:none;
-  text-align:right;
-  font-weight:bold;
-  padding:2px;
+  border: none;
+  background: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  outline: none;
+  text-align: right;
+  font-weight: bold;
+  padding: 2px;
+}
+
+.search-icon {
+  width: 40px; 
+  height: 40px;
 }
