@@ -2,7 +2,7 @@ import React from 'react';
 import { MenuItems } from "./MenuItems";
 import './Navbar.css';
 import AppLogo from '../../assets/applogo.svg';
-import Searchbar from './Searchbar.js';
+import Searchbar from '../Searchbar/Searchbar.js';
 
 function Navbar() {
   return (

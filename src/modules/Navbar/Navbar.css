@@ -7,8 +7,8 @@
   font-size: 2rem;
 }
 
-.navbar-logo{
-  position:absolute;
+.navbar-logo {
+  position: absolute;
   left: 50%;
   margin-left: -50px;  /* 50% of your logo width */
   display: block;
@@ -16,7 +16,7 @@
   /* cursor: pointer; */
 }
 
-.nav-menu{
+.nav-menu {
   display: grid;
   grid-template-columns: repeat(5,auto);
   grid-gap: 10px;
@@ -27,8 +27,8 @@
   margin-right: 2rem;
 }
 
-.nav-links{
-  color:#EEEEEE;
+.nav-links {
+  color: #EEEEEE;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
@@ -40,6 +40,6 @@
 }
 
 /* coming soon */
-.nav-links-mobile{ 
-  display:none
+.nav-links-mobile { 
+  display: none;
 }
