@@ -7,13 +7,20 @@ function Searchbar() {
   const [searchString, setSearchString] = useState("");
 
   function handleInputChange(e) {
-    setSearchString(e.target.value)
+    setSearchString(e.target.value);
+  }
+
+  function validateInput(e) {
+    if (searchString === "") {
+      console.log("nothing in searchbar, don't search");
+      e.preventDefault();
+    }
   }
 
   return (
     <div className="search-container">
-      <input type="text" placeholder="" name="search" onChange={(handleInputChange)} value={searchString} />
-        <a href={"/search?query=" + searchString}>
+      <input type="text" placeholder="" name="search" onChange={handleInputChange} value={searchString} />
+        <a href={"/search?query=" + searchString}  onClick={validateInput}>
           <button type="submit">
             <img src={SearchIcon} className="search-icon" alt="search icon (click to search)" />
           </button>
