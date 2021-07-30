@@ -63,7 +63,8 @@ function Song() {
 
         // Fetch from albums API
         return fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY);
-      }).then(function (response) {
+      })
+      .then(function (response) {
         // Albums API successful response
         console.log("Albums API fetched successfully");
         return response.json();
@@ -79,7 +80,8 @@ function Song() {
 
         // Fetch data from (albums) images API
         return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
-      }).then(function (response) {
+      })
+      .then(function (response) {
         // (Albums) images API successful response
         console.log("Images API fetched successfully");
         return response.json();
@@ -115,7 +117,7 @@ function Song() {
       })
       .catch(function (err) {
         // Error fetching image from API
-        console.log("Error: unable to fetch data from one or more APIs");
+        console.log(err);
       });
   }
 
@@ -126,13 +128,11 @@ function Song() {
       <div className="Song-details row">
         <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className="image col" />
         <div className="song-info col">
-          <p>
-            SONG<br />
-            {song.songName}<br />
-            {song.artistName}<br />
-            Released: {song.released}<br />
-            Label: {song.label}
-          </p>
+          <p>SONG</p>
+          <p>{song.songName}</p>
+          <p>{song.artistName}</p>
+          <p>Released: {song.released}</p>
+          <p>Label: {song.label}</p>
         </div>
       </div>
     )}
