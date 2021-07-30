@@ -3,7 +3,7 @@ import MainPage from './modules/MainPage.js';
 import Navbar from './modules/Navbar/Navbar.js';
 import Home from './modules/Home/Home.js';
 import About from './modules/About/About.js';
-import SearchPage from './modules/SearchPage/SearchPage.js'
+import SearchPage from './modules/SearchPage/SearchPage.js';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
