@@ -4,8 +4,7 @@ import play_button_asset from '../../assets/play_button.png';
 
 function PlayButton(prop) {
 
-  // {prop.previewProp}
-
+  // On click event
   const start = () => {
 
     // This has to be in here because there's
