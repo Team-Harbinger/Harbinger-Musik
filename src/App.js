@@ -1,5 +1,4 @@
 import './App.css';
-import MainPage from './modules/MainPage.js';
 import Navbar from './modules/Navbar/Navbar.js';
 import Home from './modules/Home/Home.js';
 import About from './modules/About/About.js';
