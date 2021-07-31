@@ -1,0 +1,93 @@
+  .row {
+    display: grid;
+    align-items: left;
+    grid-auto-flow: column;
+  }
+  .image-col{
+    align-items: left;
+    width: 500px;
+  }
+  .desc-col {
+    align-items: right;
+    width: 900px;
+  }
+  .col {
+    align-items: center;
+    width: 250px;
+  }
+  .genre-description{
+    text-align: center;
+    align-items: center;
+    font-size:1.5em;
+    margin-top: -5%;
+  }
+  
+  .genre-details {
+    gap: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: -17%;
+  }
+  
+  .genre-header {
+    font-weight: 600;
+    font-size:800%;
+    margin-top: 0.05%;
+    margin-bottom: 0.1%;
+  }
+  .image {
+    background-color: #555;
+  }
+  
+  .song-info {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .flex-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flex-row-container > .flex-row-item {
+    flex: 0 0 10;
+  }
+  
+  .flex-row-item:nth-child(even) {
+    background: #aaa;
+    flex: 1.5 1 15%;
+  }
+  
+  .Song-album {
+    text-align: center;
+  }
+  
+  .holder {
+    background-color: rgb(182, 182, 182);
+    justify-content: space-evenly;
+  }
+  
+  .song-name {
+    text-align: left;
+  }
+  
+  .play-button {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .play-button-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .song {
+    gap: 15%;
+    margin-top: 5%;
+  }
+  
+  p { 
+    margin: 0
+  }
