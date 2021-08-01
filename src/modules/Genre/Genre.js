@@ -17,7 +17,7 @@ function Genre() {
   // Pass in genre ID -> genre API -> (genre) name, description
 
   // Hardcoded for now
-  let genreID = 'g.5';
+  let genreID = 'g.115';
   // g.115- Pop
   // g.5 - Rock
   // g.33 - Alternative
@@ -95,7 +95,6 @@ function Genre() {
     console.log('updated genre details');
     genreDetailsDOMElement.push(
       <div className="genre-details row">
-
         <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="image image-col" />
         <div className="genre-description desc-col">
           <p>{stripHtml(genre.genreDescription)}</p>
@@ -119,7 +118,6 @@ function Genre() {
               </div>
             </div>
           </div>
-
         </div>
         <div className="song-name col">
           {track.trackIndex + '. ' + track.songName}
@@ -140,7 +138,7 @@ function Genre() {
         </div>
       </div>
       <div className="Song-album">
-        <h2 className="album-header">Songs</h2>
+        <h2 className="album-header">Top Songs</h2>
         <div className="song-list-container flex-row-container">
           <div className="flex-row-item"></div>
           <div className="song-list flex-row-item">

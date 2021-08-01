@@ -1,6 +1,6 @@
   .row {
     display: grid;
-    align-items: left;
+    align-items: center;
     grid-auto-flow: column;
   }
 
@@ -49,11 +49,6 @@
     background-color: #555;
   }
   
-  .song-info {
-    text-align: center;
-    align-items: center;
-  }
-  
   .flex-row-container {
     display: flex;
     flex-wrap: wrap;
@@ -81,6 +76,7 @@
   
   .song-name {
     text-align: left;
+    font-size:1.9em;
   }
   
   .play-button {
