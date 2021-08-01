@@ -3,14 +3,23 @@
     align-items: left;
     grid-auto-flow: column;
   }
+
   .image-col{
     align-items: left;
-    width: 500px;
+    width: 400px;
   }
+
   .desc-col {
     align-items: right;
-    width: 900px;
+    width: 700px;
   }
+
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  
   .col {
     align-items: center;
     width: 250px;
@@ -34,6 +43,7 @@
     font-size:800%;
     margin-top: 0.05%;
     margin-bottom: 0.1%;
+    
   }
   .image {
     background-color: #555;
@@ -82,7 +92,39 @@
     width: 50px;
     height: 50px;
   }
+
+  .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: none;
+  }
+
+  .container:hover .overlay {
+    opacity: 1;
+  }
   
+  .icon {
+    color: rgb(11, 165, 192);
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .fa-user:hover {
+    color: #eee;
+  }
+
   .song {
     gap: 15%;
     margin-top: 5%;
