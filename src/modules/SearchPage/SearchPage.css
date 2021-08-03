@@ -33,8 +33,8 @@
   background-color: rgb(182, 182, 182);
   min-width: 60%;
   max-width: 80%;
-  
 }
+
 .search-page-track {
   margin-left: 20px;
   margin-top: 20px;
@@ -50,7 +50,6 @@
 
 .search-page-track-info {
   /* align-items: flex-start; */
-  
   padding-left: 30px;
   font-size: 24px;
   /* border: 2px white solid; */

@@ -44,7 +44,6 @@ function SearchPage(props) {
         })
         trackOrder++;
       })
-
       console.log("final tracks data: ", finalTrackData);
       setTrackData({actualTrackData: finalTrackData, isDataRetrieved: true})
     })
@@ -81,6 +80,7 @@ function SearchPage(props) {
   * If there is, display the tracks. If not, display 'no songs found'.
   * If data hasn't been retrieved, display 'Loading...'
   */
+
   return (
     <div id="search-page" className={uniqueComponentID + "-flex-column-container"}>
         {trackData.isDataRetrieved 
