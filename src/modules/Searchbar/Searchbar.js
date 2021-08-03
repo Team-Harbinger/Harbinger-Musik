@@ -20,7 +20,15 @@ function Searchbar() {
   return (
     <div className="search-container">
       <input type="text" placeholder="" name="search" onChange={handleInputChange} value={searchString} />
-        <a href={"/search?query=" + searchString}  onClick={validateInput}>
+        {
+          /**  
+          * In this case the href doesn't have to match the Router path exactly.
+          * Anything after the /search can be found in the location prop that is passed
+          * into the component that Router switches to after clicking the link, 
+          * specifically, in props.location.search
+          */
+        }
+        <a href={"/search?query=" + searchString + "&type=track"}  onClick={validateInput}>
           <button type="submit">
             <img src={SearchIcon} className="search-icon" alt="search icon (click to search)" />
           </button>
