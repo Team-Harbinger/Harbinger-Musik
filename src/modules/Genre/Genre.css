@@ -4,9 +4,9 @@
     grid-auto-flow: column;
   }
 
-  .image-col{
+  .image-col {
     align-items: left;
-    width: 400px;
+    width: 500px;
   }
 
   .desc-col {
@@ -24,23 +24,29 @@
     align-items: center;
     width: 250px;
   }
-  .genre-description{
+
+  .genre-description {
     text-align: center;
     align-items: center;
-    font-size:1.5em;
+    font-size: 1.5em;
     margin-top: -5%;
+  }
+
+  .genre-name {
+    text-align: center;
+    align-items: center;
   }
   
   .genre-details {
     gap: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
-    margin-left: -17%;
+    margin-left: 10%;
   }
   
   .genre-header {
     font-weight: 600;
-    font-size:800%;
+    font-size: 800%;
     margin-top: 0.05%;
     margin-bottom: 0.1%;
     
@@ -89,7 +95,7 @@
     height: 50px;
   }
 
-  .overlay{
+  .overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -107,7 +113,8 @@
   }
   
   .icon {
-    color: rgb(11, 165, 192);
+    background: rgb(104, 103, 103);
+    color: rgb(253, 251, 255);
     font-size: 20px;
     position: absolute;
     top: 50%;

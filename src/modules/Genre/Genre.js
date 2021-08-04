@@ -95,7 +95,7 @@ function Genre() {
     console.log('updated genre details');
     genreDetailsDOMElement.push(
       <div className="genre-details row">
-        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="image image-col" />
+        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="image-col" />
         <div className="genre-description desc-col">
           <p>{stripHtml(genre.genreDescription)}</p>
         </div>
@@ -130,11 +130,9 @@ function Genre() {
     // Change to ids
     <div className="Song">
       <h2 className="genre-header">{genreNameDOMElement}</h2>
-      <div className="holder flex-row-item">
-        <div className="song-list-container flex-row-container">
+      <div className="holder flex-row-item">        
           <div className="song flex-row-item">
             {genreDetailsDOMElement}
-          </div>
         </div>
       </div>
       <div className="Song-album">
