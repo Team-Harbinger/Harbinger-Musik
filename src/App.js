@@ -2,9 +2,7 @@ import './App.css';
 import Navbar from './modules/Navbar/Navbar.js';
 import Home from './modules/Home/Home.js';
 import About from './modules/About/About.js';
-import SearchPage from './modules/SearchPage/SearchPage.js';
-import Genre from './modules/Genre/Genre.js';
-import Song from './modules/Song/Song.js';
+import SearchPage from './modules/SearchPage/SearchPage.js'
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -14,7 +12,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact component={Genre} />
+        <Route path='/' exact component={Home} />
         <Route path='/About' component={About} />
         <Route exact path="/search" component={SearchPage} />
       </Switch>
