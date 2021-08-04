@@ -1,0 +1,74 @@
+.search-page-flex-column-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px green solid; */
+}
+
+.search-page-flex-row-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* border: 2px red solid; */
+}
+
+#search-page {
+  /* border: 2px orange dashed; */
+}
+
+
+#search-page-top-matching-songs {
+  /* border: 2px purple dotted; */
+  width: 80%;
+}
+
+#search-page-top-matching-songs h2 {
+  font-weight: normal;
+  font-size: 3em;
+}
+
+#search-page-track-list {
+  /* border: 2px blue dashed; */
+  align-items: flex-start;
+  background-color: rgb(182, 182, 182);
+  min-width: 60%;
+  max-width: 80%;
+}
+
+.search-page-track {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  /* border: 2px orange dotted; */
+  /* width: 80%; */
+}
+
+.search-page-track-image {
+  height: 150px;
+  width: 150px;
+}
+
+.search-page-track-info {
+  /* align-items: flex-start; */
+  padding-left: 30px;
+  font-size: 24px;
+  /* border: 2px white solid; */
+}
+
+.search-page-track-order {
+  /* border: 2px black dashed; */
+}
+
+.search-page-track-name-and-artist {
+  margin-left: 10px;
+  align-items: flex-start;
+  /* border: 2px yellow solid; */
+}
+
+.search-page-track-name {
+  /* border: 2px blue solid; */
+}
+
+.search-page-track-artist {
+  /* border: 2px purple solid; */
+}

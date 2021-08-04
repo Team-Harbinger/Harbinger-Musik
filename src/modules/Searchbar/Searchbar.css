@@ -7,10 +7,10 @@
   justify-content: left;
   align-items: center;
   padding: 20px 10px;
-  background: rgb(126, 124, 124);
+  background: white;
   font-size: 17px;
   border: solid grey;
-  cursor: pointer;
+  cursor: text;
 }
 
 .search-container button {
@@ -26,6 +26,7 @@
   text-align: right;
   font-weight: bold;
   padding: 2px;
+  cursor: pointer;
 }
 
 .search-icon {
