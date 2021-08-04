@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Song.css';
 import PlayButton from '../PlayButton/PlayButton';
 
-function Song() {
+function Song(props) {
 
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [songDetailsData, setSongDetailsData] = useState([]);
@@ -24,7 +24,8 @@ function Song() {
   // From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
 
   // Hardcoded for now
-  let trackID = 'tra.327023393';
+  let trackID = props.location.pathname.split("/")[2];
+  console.log(trackID);
   // tra.327023393 - Kamikaze Eminem
   // tra.549084779 - Astronaut
   // tra.459083355 - Body Like A Back Road by Sam Hunt
