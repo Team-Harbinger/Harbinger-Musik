@@ -150,6 +150,7 @@ function Song() {
           {track.trackIndex + '. ' + track.trackName}
         </div>
       </div>
+      
     )
   });
 
@@ -158,7 +159,6 @@ function Song() {
     <div className="Song">
 
       {songDetailsDOMElement}
-
       <div className="Song-album">
         <h2 className="album-header">Songs</h2>
         <div className="song-list-container flex-row-container">
