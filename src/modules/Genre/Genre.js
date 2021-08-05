@@ -65,6 +65,7 @@ function Genre() {
             albumIds: track.albumId,
             songImageSrc: "https://api.napster.com/imageserver/v2/albums/" + track.albumId + "/images/500x500.jpg",
             songName: track.name,
+            artistName: track.artistName,
             trackIndex: count,
             trackPreviewSrc: track.previewURL
           })
@@ -119,8 +120,11 @@ function Genre() {
             </div>
           </div>
         </div>
-        <div className="song-name col">
+        <div className="song-name list-col">
           {track.trackIndex + '. ' + track.songName}
+          <pre>
+            {"Artist: " + track.artistName}
+          </pre>
         </div>
       </div>
     )
@@ -130,7 +134,7 @@ function Genre() {
     // Change to ids
     <div className="Song">
       <h2 className="genre-header">{genreNameDOMElement}</h2>
-      <div className="holder flex-row-item">        
+      <div className="holder flex-row-container">        
           <div className="song flex-row-item">
             {genreDetailsDOMElement}
         </div>

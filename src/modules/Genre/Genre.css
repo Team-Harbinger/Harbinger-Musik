@@ -22,7 +22,14 @@
   
   .col {
     align-items: center;
-    width: 250px;
+    width: 200px;
+    white-space: pre;
+  }
+
+  .list-col {
+    align-items: center;
+    width: 500px;
+    white-space: pre;
   }
 
   .genre-description {
@@ -68,7 +75,7 @@
   
   .flex-row-item:nth-child(even) {
     background: #aaa;
-    flex: 1.5 1 15%;
+    flex: 1.5 1 50%;
   }
   
   .Song-album {
@@ -82,7 +89,7 @@
   
   .song-name {
     text-align: left;
-    font-size:1.9em;
+    font-size: 1.9em;
   }
   
   .play-button {
