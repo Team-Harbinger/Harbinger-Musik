@@ -122,9 +122,9 @@ function Genre() {
         </div>
         <div className="song-name list-col">
           {track.trackIndex + '. ' + track.songName}
-          <pre>
-            {"Artist: " + track.artistName}
-          </pre>
+          <div className="artist-name list-col">
+            {track.artistName}
+          </div>
         </div>
       </div>
     )

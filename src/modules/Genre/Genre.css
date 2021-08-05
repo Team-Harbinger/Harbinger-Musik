@@ -43,6 +43,11 @@
     text-align: center;
     align-items: center;
   }
+
+  .artist-name {
+    margin-left: 6%;
+    align-items: center;
+  }
   
   .genre-details {
     gap: 5%;
@@ -86,7 +91,7 @@
     background-color: rgb(182, 182, 182);
     justify-content: space-evenly;
   }
-  
+
   .song-name {
     text-align: left;
     font-size: 1.9em;
