@@ -21,6 +21,7 @@ function Home() {
         // don't need to fetch() the images.
         genres.push({
           genreName: genre.name,
+          genreID: genre.id,
           genreImageSrc: "https://api.napster.com/imageserver/images/" + genre.id + "/240x160.jpg"
         })
       })
@@ -42,8 +43,10 @@ function Home() {
   genreData.forEach(genre => {
     genreDOMElements.push(
       <div className="genre">
-        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="genre-image" />
-        <span className="genre-image-description">{genre.genreName}</span>
+        <a href={"/genre/" + genre.genreID}>
+          <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="genre-image" />
+          <span className="genre-image-description">{genre.genreName}</span>
+        </a>
       </div>
     )
   })
