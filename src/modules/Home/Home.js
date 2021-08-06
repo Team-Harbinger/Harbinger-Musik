@@ -21,7 +21,12 @@ function Home() {
       response.genres.forEach(genre => {
         // don't need to fetch() the images.
         genres.push({
+          /** 
+          *  genreName is what is displayed on the screen. genreShortcutName is used
+          *  for the API call in Genre.js.
+          */
           genreName: genre.name,
+          genreShortcutName: genre.shortcut,
           genreID: genre.id,
           genreImageSrc: genreImages[genre.name]
         })
@@ -44,13 +49,13 @@ function Home() {
   genreData.forEach(genre => {
     genreDOMElements.push(
       <div className="genre">
-        <a href={"/genre/" + genre.genreID}>
+        <a href={"/genre/" + genre.genreShortcutName}>
           <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="genre-image" />
           <span className="genre-image-description">{genre.genreName}</span>
         </a>
       </div>
     )
-  })
+  });
 
   return (
     <div className="Home">
