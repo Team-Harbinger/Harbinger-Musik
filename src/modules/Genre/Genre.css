@@ -37,6 +37,11 @@
   align-items: center;
 }
 
+.artist-name {
+  margin-left: 12%;
+  align-items: center;
+}
+
 .genre-details {
   gap: 5%;
   margin-top: 2%;

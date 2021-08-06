@@ -63,6 +63,7 @@ function Genre(props) {
             albumIds: track.albumId,
             songImageSrc: "https://api.napster.com/imageserver/v2/albums/" + track.albumId + "/images/500x500.jpg",
             songName: track.name,
+            artistName: track.artistName,
             trackID: track.id,
             trackIndex: count,
             trackPreviewSrc: track.previewURL
@@ -120,7 +121,11 @@ function Genre(props) {
         </div>
         <div className="song-name col">
           <span>{track.trackIndex + '. '}</span>
-          <a href={"/song/" + track.trackID}>{track.songName}</a>
+          <a href={"/song/" + track.trackID}>{track.songName}
+          </a>
+          <div className="artist-name list-col">
+            {track.artistName}
+          </div>
         </div>
       </div>
     )
