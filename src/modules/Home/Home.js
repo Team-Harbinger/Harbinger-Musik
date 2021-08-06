@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import './Home.css';
+import genreImages from '../../assets/genre_images/genreImages';
 
 function Home() {
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
@@ -22,7 +23,7 @@ function Home() {
         genres.push({
           genreName: genre.name,
           genreID: genre.id,
-          genreImageSrc: "https://api.napster.com/imageserver/images/" + genre.id + "/240x160.jpg"
+          genreImageSrc: genreImages[genre.name]
         })
       })
       console.log(genres);
