@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import './Home.css';
-import genreImages from '../../assets/genre_images';
+import genreImages from '../../assets/genre_images/genreImages';
 
 function Home() {
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
