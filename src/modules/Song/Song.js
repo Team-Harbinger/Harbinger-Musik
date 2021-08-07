@@ -147,8 +147,9 @@ function Song(props) {
         <div className="play-button col">
           <PlayButton previewProp={track.trackPreviewSrc} />
         </div>
-        <div className="song-name col">
-          {track.trackIndex + '. ' + track.trackName}
+        <div className="song-name-row col">
+          <span className="song-name-col">{track.trackIndex + '.'}</span>
+          <span className="song-name-col song-page-track-name">{track.trackName}</span>
         </div>
       </div>
     )
