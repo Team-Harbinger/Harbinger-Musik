@@ -18,11 +18,19 @@ function Genre(props) {
   // To get Genre Description:
   // Pass in genre ID -> genre API -> (genre) name, description
   
-  let genreID = props.location.pathname.split("/")[2];
+  /**
+  * Some api endpoints work using shortcut name, but some don't.
+  * All work with the genreID, so we will use that for all calls
+  * after the first one (we have to use the shortcut name for the 
+  * first call b/c that is the only thing passed in the url by Home.js.
+  * We can get the id from the first call then use it for subsequent calls
+  */
+
+  const genreShortcutName = props.location.pathname.split("/")[2];
+  let genreID = null;
 
   // Genre Description
   if (!genreDetailsData.length) {
-    console.log(genreDetailsData);
     let genreDetails = {
       genreImageSrc: null,
       genreName: null,
@@ -31,22 +39,20 @@ function Genre(props) {
     };
     let songList = [];
 
-    fetch('https://api.napster.com/v2.2/genres/' + genreID + '?apikey=' + API_KEY)
+    fetch('https://api.napster.com/v2.2/genres/' + genreShortcutName + '?apikey=' + API_KEY)
       .then(function (response) {
-
         console.log("Tracks API fetched success");
         return response.json();
       })
       .then(function (response) {
-        // console.log(response);
+        // assigning the id to use in subsequent api calls
+        genreID = response.genres[0].id;
         genreDetails.genreName = response.genres[0].name;
         genreDetails.genreDescription = response.genres[0].description;
         // console.log(genreDetails);
       })
       .then(function (response) {
-        // console.log(response);
         genreDetails.genreImageSrc = "https://api.napster.com/imageserver/images/" + genreID + "/240x160.jpg";
-        console.log(genreDetails);
         setGenreDetailsData([genreDetails]);
         return fetch("https://api.napster.com/v2.2/genres/" + genreID + "/tracks/top?apikey=" + API_KEY);
       })
@@ -56,7 +62,6 @@ function Genre(props) {
         return response.json();
       })
       .then(function (response) {
-        console.log(response);
         let count = 1;
         response.tracks.forEach(track => {
           songList.push({
@@ -65,6 +70,7 @@ function Genre(props) {
             songName: track.name,
             artistName: track.artistName,
             trackID: track.id,
+            trackShortcut: track.shortcut,
             trackIndex: count,
             trackPreviewSrc: track.previewURL
           })
@@ -110,10 +116,10 @@ function Genre(props) {
     songListDOMElement.push(
       <div className="song row">
         <div className="song-image col">
-          <div class="container">
+          <div className="container">
             <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image col" />
-            <div class="overlay">
-              <div class="icon">
+            <div className="overlay">
+              <div className="icon">
                 <PlayButton previewProp={track.trackPreviewSrc} />
               </div>
             </div>
@@ -121,7 +127,8 @@ function Genre(props) {
         </div>
         <div className="song-name col">
           <span>{track.trackIndex + '. '}</span>
-          <a href={"/song/" + track.trackID}>{track.songName}
+          <a href={"/song/" + track.trackShortcut}>
+            {track.songName}
           </a>
           <div className="artist-name list-col">
             {track.artistName}

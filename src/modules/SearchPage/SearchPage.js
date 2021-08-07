@@ -6,7 +6,7 @@ import asyncFetchTrackData from './asyncFetchTrackData.js';
 function SearchPage(props) {
   console.log("update")
   /** 
-  * Temporary fix to the problem where css styles from other stylesheets
+  * Temporary fix to the problem where css styles from other component stylesheets
   * will apply to html elements in this component if the id or class names
   * match. Obviously, we only want styles from our own specifically imported
   * stylesheet to be applied, so this is a problem. A fix could be to make sure 
@@ -19,7 +19,7 @@ function SearchPage(props) {
 
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [trackData, setTrackData] = useState({actualTrackData: [], isDataRetrieved: false});
-  // const [isDataRetrieved, setIsDataRetrieved] = useState(false);
+  
   /**
   * Router automatically passes in some props. 
   * The query parameters for the API call can be found in props.location.search.
@@ -38,6 +38,7 @@ function SearchPage(props) {
         finalTrackData.push({
           trackImageSrc: "https://api.napster.com/imageserver/v2/albums/" + track.albumId + "/images/500x500.jpg",
           trackID: track.id,
+          trackShortcut: track.shortcut,
           trackName: track.name,
           trackArtist: track.artistName,
           trackOrder: trackOrder
@@ -61,7 +62,7 @@ function SearchPage(props) {
               <span>{`${track.trackOrder + "."}`}</span>
             </div>
             <div className={`${uniqueComponentID + "-track-name-and-artist"} ${uniqueComponentID + "-flex-column-container"}`}>
-              <a href={"/song/" + track.trackID} >
+              <a href={"/song/" + track.trackShortcut} >
                 <span className={`${uniqueComponentID + "-track-name"}`}>
                   {track.trackName}
                 </span>
