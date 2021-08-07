@@ -36,9 +36,11 @@
 }
 
 .search-page-track {
-  margin-left: 20px;
+  /* margin-left: 20px;
   margin-top: 20px;
   margin-right: 20px;
+  margin-bottom: */
+  padding: 20px;
   /* border: 2px orange dotted; */
   /* width: 80%; */
 }
@@ -48,10 +50,15 @@
   width: 150px;
 }
 
-.search-page-track-info {
-  /* align-items: flex-start; */
-  padding-left: 30px;
+/* Used to center the info vertically */
+.search-page-track-info-wrapper {
+  align-items: center;
+  margin-left: 60px;
   font-size: 24px;
+  /* border: 2px red solid; */
+}
+
+.search-page-track-info {
   /* border: 2px white solid; */
 }
 
@@ -63,6 +70,16 @@
   margin-left: 10px;
   align-items: flex-start;
   /* border: 2px yellow solid; */
+}
+
+.search-page-link-to-track {
+  color: black;
+  text-decoration: none;
+}
+
+.search-page-link-to-track:hover {
+  color: #3f3cf8;
+  text-decoration: underline;
 }
 
 .search-page-track-name {

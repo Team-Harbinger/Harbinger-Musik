@@ -57,19 +57,21 @@ function SearchPage(props) {
       trackDOMElements.push(
         <div className={`${uniqueComponentID + "-track"} ${uniqueComponentID + "-flex-row-container"}`}>
           <img src={track.trackImageSrc} alt={"Album cover of " + track.trackName} className={uniqueComponentID + "-track-image"} />
-          <div className={`${uniqueComponentID + "-track-info"} ${uniqueComponentID + "-flex-row-container"}`}>
-            <div className={`${uniqueComponentID + "-track-order"}`}>
-              <span>{`${track.trackOrder + "."}`}</span>
-            </div>
-            <div className={`${uniqueComponentID + "-track-name-and-artist"} ${uniqueComponentID + "-flex-column-container"}`}>
-              <a href={"/song/" + track.trackShortcut} >
-                <span className={`${uniqueComponentID + "-track-name"}`}>
-                  {track.trackName}
+          <div className={`${uniqueComponentID + "-track-info-wrapper"} ${uniqueComponentID + "-flex-row-container"}`}>
+            <div className={`${uniqueComponentID + "-track-info"} ${uniqueComponentID + "-flex-row-container"}`}>
+              <div className={`${uniqueComponentID + "-track-order"}`}>
+                <span>{`${track.trackOrder + "."}`}</span>
+              </div>
+              <div className={`${uniqueComponentID + "-track-name-and-artist"} ${uniqueComponentID + "-flex-column-container"}`}>
+                <a href={"/song/" + track.trackShortcut} className={`${uniqueComponentID + "-link-to-track"}`}>
+                  <span className={`${uniqueComponentID + "-track-name"}`}>
+                    {track.trackName}
+                  </span>
+                </a>
+                <span className={`${uniqueComponentID + "-track-artist"}`}>
+                  {track.trackArtist}
                 </span>
-              </a>
-              <span className={`${uniqueComponentID + "-track-artist"}`}>
-                {track.trackArtist}
-              </span>
+              </div>
             </div>
           </div>
         </div>
