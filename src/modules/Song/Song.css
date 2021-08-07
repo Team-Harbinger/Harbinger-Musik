@@ -51,8 +51,22 @@
   justify-content: space-evenly;
 }
 
-.song-name {
+.song-name-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   text-align: left;
+  font-size: 1.5em;
+  /* border: 2px red solid; */
+}
+
+.song-name-col {
+  flex-direction: column;
+}
+
+.song-page-track-name {
+  margin-left: 10px;
+  /* border: 2px yellow solid; */
 }
 
 .play-button {

@@ -2,12 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import './Song.css';
 import PlayButton from '../PlayButton/PlayButton';
+import LoadingImage from '../../assets/song-details-album-image-placeholder.gif';
 
 function Song(props) {
 
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
-  const [songDetailsData, setSongDetailsData] = useState([]);
-  const [songListData, setSongListData] = useState([]);
+  const [songDetailsData, setSongDetailsData] = useState({ actualSongDetailsData: [], isSongDetailsDataRetrieved: false });
+  const [songListData, setSongListData] = useState({ actualSongListData: [], isSongListDataRetrieved: false });
 
 
   // For Song Details:
@@ -38,7 +39,7 @@ function Song(props) {
   // tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
   
   // Song Details
-  if (!songDetailsData.length) {
+  if (!songDetailsData.isSongDetailsDataRetrieved) {
 
     console.log(songDetailsData);
     let songDetails =  {
@@ -55,56 +56,56 @@ function Song(props) {
     fetch('http://api.napster.com/v2.2/tracks/'+ trackShortcut + '?apikey=' + API_KEY)
       .then(function (response) {
         // Track API successful response
-        console.log("Track API fetched successfully");
+        //console.log("Track API fetched successfully");
         return response.json();
       })
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
 
         songDetails.songName = response.tracks[0].name;
         songDetails.artistName = response.tracks[0].artistName;
 
-        console.log(songDetails);
+        //console.log(songDetails);
 
         // Fetch from albums API
         return fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY);
       })
       .then(function (response) {
         // Albums API successful response
-        console.log("Albums API fetched successfully");
+        //console.log("Albums API fetched successfully");
         return response.json();
       })
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
 
         songDetails.released = (new Date(response.albums[0].released)).toDateString();
         songDetails.label = response.albums[0].label;
         songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
 
-        console.log(songDetails);
+        //console.log(songDetails);
 
         // Fetch data from (albums) images API
         return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
       })
       .then(function (response) {
         // (Albums) images API successful response
-        console.log("Images API fetched successfully");
+        //console.log("Images API fetched successfully");
         return response.json();
       })
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
 
         songDetails.songImageSrc = response.images[0].url;
 
         console.log(songDetails);
-        setSongDetailsData([songDetails]);
+        setSongDetailsData({ actualSongDetailsData: [songDetails], isSongDetailsDataRetrieved: true });
 
         // Fetch the list of tracks now
         return fetch(songDetails.tracks);
       })
       .then(function (response) {
         // Albums tracks API successful response
-        console.log("Tracks have been fetched successfully.");
+        //console.log("Tracks have been fetched successfully.");
         return response.json();
       })
       .then(function (response) {
@@ -117,59 +118,78 @@ function Song(props) {
             trackPreviewSrc: track.previewURL,
           })
         });
-        console.log(songList);
-        setSongListData(songList);
+        //console.log(songList);
+        setSongListData({ actualSongListData: songList, isSongListDataRetrieved: true });
       })
       .catch(function (err) {
         // Error fetching image from API
-        console.log(err);
+        //console.log(err);
       });
   }
 
   let songDetailsDOMElement = [];
-  songDetailsData.forEach(song => {
-    console.log('updated song details');
-    songDetailsDOMElement.push(
-      <div className="Song-details row">
-        <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className="image col" />
-        <div className="song-info col">
-          <p>SONG</p>
-          <p>{song.songName}</p>
-          <p>{song.artistName}</p>
-          <p>Released: {song.released}</p>
-          <p>Label: {song.label}</p>
+  if (songDetailsData.isSongDetailsDataRetrieved && songDetailsData.actualSongDetailsData.length) {
+    songDetailsData.actualSongDetailsData.forEach(song => {
+      console.log('updated song details');
+      songDetailsDOMElement.push(
+        <div className="Song-details row">
+          <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className="image col" />
+          <div className="song-info col">
+            <p>SONG</p>
+            <p>{song.songName}</p>
+            <p>{song.artistName}</p>
+            <p>Released: {song.released}</p>
+            <p>Label: {song.label}</p>
+          </div>
         </div>
-      </div>
-    )}
-  );
+      )
+    }
+    );
+  }
 
   let songListDOMElement = [];
-  songListData.forEach(track => { 
-    console.log('updated song list');
-    songListDOMElement.push(
-      <div className="song row">
-        <div className="play-button col">
-          <PlayButton previewProp={track.trackPreviewSrc} />
+  if (songListData.isSongListDataRetrieved && songListData.actualSongListData.length) { 
+    songListData.actualSongListData.forEach(track => {
+      console.log('updated song list');
+      songListDOMElement.push(
+        <div className="song row">
+          <div className="play-button col">
+            <PlayButton previewProp={track.trackPreviewSrc} />
+          </div>
+          <div className="song-name-row col">
+            <span className="song-name-col">{track.trackIndex + '.'}</span>
+            <span className="song-name-col song-page-track-name">{track.trackName}</span>
+          </div>
         </div>
-        <div className="song-name col">
-          {track.trackIndex + '. ' + track.trackName}
-        </div>
-      </div>
-    )
-  });
+      )
+    });
+  }
 
   return(
-    // Change to ids
     <div className="Song">
 
-      {songDetailsDOMElement}
+      {songDetailsData.isSongDetailsDataRetrieved ?
+        songDetailsDOMElement :
+        <div className="Song-details row">
+          <img src={LoadingImage} alt={"Loading"} className="image col" />
+          <div className="song-info col">
+            <h2>Song Details</h2>
+            <span>Loading...</span>
+          </div>
+        </div>
+      }
 
       <div className="Song-album">
         <h2 className="album-header">Songs</h2>
         <div className="song-list-container flex-row-container">
           <div className="flex-row-item"></div>
           <div className="song-list flex-row-item">
-            {songListDOMElement}
+            {songListData.isSongListDataRetrieved ?
+                songListDOMElement :
+                <div>
+                  <span>Loading...</span>
+                </div>
+            }
           </div>
           <div className="flex-row-item"></div>
         </div>
