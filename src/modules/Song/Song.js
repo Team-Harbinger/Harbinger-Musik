@@ -23,9 +23,13 @@ function Song(props) {
   // For Song Album:
   // From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
 
-  // Hardcoded for now
-  let trackID = props.location.pathname.split("/")[2];
-  console.log(trackID);
+  /**
+  * pathname format: /song/trackShortcut
+  * Must get trackShortcut by itself
+  */
+  const trackShortcut = props.location.pathname.slice(6, props.location.pathname.length);
+  console.log(trackShortcut);
+
   // tra.327023393 - Kamikaze Eminem
   // tra.549084779 - Astronaut
   // tra.459083355 - Body Like A Back Road by Sam Hunt
@@ -47,8 +51,8 @@ function Song(props) {
     };
     let songList = [];
 
-    // fetch track using track ID.
-    fetch('http://api.napster.com/v2.2/tracks/'+ trackID + '?apikey=' + API_KEY)
+    // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
+    fetch('http://api.napster.com/v2.2/tracks/'+ trackShortcut + '?apikey=' + API_KEY)
       .then(function (response) {
         // Track API successful response
         console.log("Track API fetched successfully");
