@@ -29,7 +29,7 @@ function Song(props) {
   * Must get trackShortcut by itself
   */
   const trackShortcut = props.location.pathname.slice(6, props.location.pathname.length);
-  console.log(trackShortcut);
+  //console.log(trackShortcut);
 
   // tra.327023393 - Kamikaze Eminem
   // tra.549084779 - Astronaut
@@ -41,7 +41,7 @@ function Song(props) {
   // Song Details
   if (!songDetailsData.isSongDetailsDataRetrieved) {
 
-    console.log(songDetailsData);
+    //console.log(songDetailsData);
     let songDetails =  {
       songImageSrc: null,
       songName: null,
@@ -97,7 +97,7 @@ function Song(props) {
 
         songDetails.songImageSrc = response.images[0].url;
 
-        console.log(songDetails);
+        //console.log(songDetails);
         setSongDetailsData({ actualSongDetailsData: [songDetails], isSongDetailsDataRetrieved: true });
 
         // Fetch the list of tracks now
@@ -116,8 +116,10 @@ function Song(props) {
             trackName: track.name,
             trackIndex: track.index,
             trackPreviewSrc: track.previewURL,
+            trackShortcut: track.shortcut,
           })
         });
+        //console.log("SongList:");
         //console.log(songList);
         setSongListData({ actualSongListData: songList, isSongListDataRetrieved: true });
       })
@@ -129,8 +131,8 @@ function Song(props) {
 
   let songDetailsDOMElement = [];
   if (songDetailsData.isSongDetailsDataRetrieved && songDetailsData.actualSongDetailsData.length) {
+    console.log('added song details');
     songDetailsData.actualSongDetailsData.forEach(song => {
-      console.log('updated song details');
       songDetailsDOMElement.push(
         <div className="Song-details row">
           <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className="image col" />
@@ -147,13 +149,84 @@ function Song(props) {
     );
   }
 
+  // Updates song details to the song
+  const updateSongDetails = (shortcut) => {
+    console.log("updateSongDetails(" + shortcut + ")");
+
+    let songDetails = {
+      songImageSrc: null,
+      songName: null,
+      artistName: null,
+      released: null,
+      label: null,
+      tracks: null,
+    };
+
+    // Reset song details state
+    //setSongDetailsData({ actualSongDetailsData: [], isSongDetailsDataRetrieved: true, isReloaded: true });
+
+    // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
+    fetch('http://api.napster.com/v2.2/tracks/' + shortcut + '?apikey=' + API_KEY)
+      .then(function (response) {
+        // Track API successful response
+        //console.log("Track API fetched successfully");
+        return response.json();
+      })
+      .then(function (response) {
+        //console.log(response);
+
+        songDetails.songName = response.tracks[0].name;
+        songDetails.artistName = response.tracks[0].artistName;
+
+        //console.log(songDetails);
+
+        // Fetch from albums API
+        return fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY);
+      })
+      .then(function (response) {
+        // Albums API successful response
+        //console.log("Albums API fetched successfully");
+        return response.json();
+      })
+      .then(function (response) {
+        //console.log(response);
+
+        songDetails.released = (new Date(response.albums[0].released)).toDateString();
+        songDetails.label = response.albums[0].label;
+        songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
+
+        //console.log(songDetails);
+
+        // Fetch data from (albums) images API
+        return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
+      })
+      .then(function (response) {
+        // (Albums) images API successful response
+        //console.log("Images API fetched successfully");
+        return response.json();
+      })
+      .then(function (response) {
+        //console.log(response);
+
+        songDetails.songImageSrc = response.images[0].url;
+
+        //console.log("Updated song details: ");
+        //console.log(songDetails);
+        setSongDetailsData({ actualSongDetailsData: [songDetails], isSongDetailsDataRetrieved: true });
+      })
+      .catch(function (err) { 
+        console.log("updateSongDetails() error: ");
+        console.log(err);
+      });
+  }
+
   let songListDOMElement = [];
   if (songListData.isSongListDataRetrieved && songListData.actualSongListData.length) { 
+    //console.log('updated song list');
     songListData.actualSongListData.forEach(track => {
-      console.log('updated song list');
       songListDOMElement.push(
         <div className="song row">
-          <div className="play-button col">
+          <div className="play-button col" onClick={() => updateSongDetails(track.trackShortcut)}>
             <PlayButton previewProp={track.trackPreviewSrc} />
           </div>
           <div className="song-name-row col">
