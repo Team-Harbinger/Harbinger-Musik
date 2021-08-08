@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .navbar-logo {
@@ -42,4 +45,14 @@
 /* coming soon */
 .nav-links-mobile { 
   display: none;
+}
+
+/* 
+  This is needed so the navbar
+  does not cover the rest of the
+  webpage's content
+*/
+.navbar-margin {
+  margin-bottom: 100px;
+  color: white;
 }
