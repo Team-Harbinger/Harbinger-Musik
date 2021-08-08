@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { useState } from 'react';
 import './Genre.css';
 import PlayButton from '../PlayButton/PlayButton';
+import genreImages from '../../assets/genre_images/genreImages';
 
 function stripHtml(html) {
   let tmp = document.createElement("DIV");
@@ -17,7 +18,7 @@ function Genre(props) {
 
   // To get Genre Description:
   // Pass in genre ID -> genre API -> (genre) name, description
-  
+
   /**
   * Some api endpoints work using shortcut name, but some don't.
   * All work with the genreID, so we will use that for all calls
@@ -52,7 +53,7 @@ function Genre(props) {
         // console.log(genreDetails);
       })
       .then(function (response) {
-        genreDetails.genreImageSrc = "https://api.napster.com/imageserver/images/" + genreID + "/240x160.jpg";
+        genreDetails.genreImageSrc = genreImages[genreDetails.genreName];
         setGenreDetailsData([genreDetails]);
         return fetch("https://api.napster.com/v2.2/genres/" + genreID + "/tracks/top?apikey=" + API_KEY);
       })
@@ -115,9 +116,9 @@ function Genre(props) {
     console.log('updated song list');
     songListDOMElement.push(
       <div className="song row">
-        <div className="song-image col">
+        <div className="song-image column">
           <div className="container">
-            <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image col" />
+            <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image column" />
             <div className="overlay">
               <div className="icon">
                 <PlayButton previewProp={track.trackPreviewSrc} />
@@ -125,13 +126,17 @@ function Genre(props) {
             </div>
           </div>
         </div>
-        <div className="song-name col">
-          <span>{track.trackIndex + '. '}</span>
-          <a href={"/song/" + track.trackShortcut} className="link-to-track">
-            {track.songName}
-          </a>
-          <div className="artist-name list-col">
-            {track.artistName}
+        <div className="song-name column">
+          <div className="track-index">
+            <span class="track-index">{track.trackIndex + '. '}</span>
+          </div>
+          <div className=".track-name-and-artist">
+            <a href={"/song/" + track.trackShortcut} className="link-to-track">
+              {track.songName}
+            </a>
+            <div className="artist-name">
+              {track.artistName}
+            </div>
           </div>
         </div>
       </div>
@@ -142,9 +147,9 @@ function Genre(props) {
     // Change to ids
     <div className="Song">
       <h2 className="genre-header">{genreNameDOMElement}</h2>
-      <div className="holder flex-row-item">        
-          <div className="song flex-row-item">
-            {genreDetailsDOMElement}
+      <div className="holder flex-row-item">
+        <div className="song flex-row-item">
+          {genreDetailsDOMElement}
         </div>
       </div>
       <div className="Song-album">
