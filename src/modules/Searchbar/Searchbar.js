@@ -14,7 +14,7 @@ function Searchbar() {
     setSearchString(e.target.value);
   }
 
-  // only runs when the search icon is clicked.
+  // runs when enter key is pressed or search icon is clicked
   function validateInput(e) {
     // check whether event was a keypress or a click. 
     if (e.key === undefined) {

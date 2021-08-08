@@ -90,6 +90,16 @@
   font-size:1.9em;
 }
 
+.link-to-track {
+  color: black;
+  text-decoration: none;
+}
+
+.link-to-track:hover {
+  color: #3f3cf8;
+  text-decoration: underline;
+}
+
 .play-button {
   text-align: center;
   align-items: center;
