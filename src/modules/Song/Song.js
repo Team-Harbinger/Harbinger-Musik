@@ -81,7 +81,6 @@ function Song(props) {
 
       // Fetch data from (albums) images API
       albumHref = response.albums[0].links.images.href;
-      // return asyncFetchAlbumImageData(response.albums[0].links.images.href, API_KEY);
     })
 
     return asyncFetchAlbumImageData(albumHref, API_KEY);
