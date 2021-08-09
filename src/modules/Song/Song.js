@@ -3,6 +3,10 @@ import { useState } from 'react';
 import './Song.css';
 import PlayButton from '../PlayButton/PlayButton';
 import LoadingImage from '../../assets/song-details-album-image-placeholder.gif';
+import asyncFetchTrackData from './asyncFetchTrackData.js';
+import asyncFetchAlbumsData from './asyncFetchAlbumsData.js';
+import asyncFetchAlbumImageData from './asyncFetchAlbumImageData.js';
+import asyncFetchListOfTracksData from './asyncFetchListOfTracksData.js';
 
 function Song(props) {
 
@@ -37,63 +41,61 @@ function Song(props) {
   // tra.524675774 - RAAAAAAAAAAAAAAAAUUUUUUUL
   // WARNING: AUDIO DOES NOT PLAY FOR 50 CENT
   // tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
+
+  let songDetails = {
+    songImageSrc: null,
+    songName: null,
+    artistName: null,
+    released: null,
+    label: null,
+    tracks: null,
+  };
+
+  // The first time this is called is when the user first loads the page
+  // After that, any time the user clicks on a play button, this would
+  // be called
+  async function songDetailsAPICalls(trackShortcut) {
+
+    let albumHref;
+
+    // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
+    await asyncFetchTrackData(trackShortcut, API_KEY).then(response => {
+      //console.log(response);
+
+      songDetails.songName = response.tracks[0].name;
+      songDetails.artistName = response.tracks[0].artistName;
+
+      //console.log(songDetails);
+
+      // Fetch from albums API
+      return asyncFetchAlbumsData(response.tracks[0].albumId, API_KEY);
+    })
+    .then(function (response) {
+      //console.log(response);
+
+      songDetails.released = (new Date(response.albums[0].released)).toDateString();
+      songDetails.label = response.albums[0].label;
+      songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
+
+      //console.log(songDetails);
+
+      // Fetch data from (albums) images API
+      albumHref = response.albums[0].links.images.href;
+      // return asyncFetchAlbumImageData(response.albums[0].links.images.href, API_KEY);
+    })
+
+    return asyncFetchAlbumImageData(albumHref, API_KEY);
+  }
   
   // Song Details
   if (!songDetailsData.isSongDetailsDataRetrieved) {
 
     //console.log(songDetailsData);
-    let songDetails =  {
-      songImageSrc: null,
-      songName: null,
-      artistName: null,
-      released: null,
-      label: null,
-      tracks: null,
-    };
     let songList = [];
 
-    // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
-    fetch('http://api.napster.com/v2.2/tracks/'+ trackShortcut + '?apikey=' + API_KEY)
+    songDetailsAPICalls(trackShortcut)
       .then(function (response) {
-        // Track API successful response
-        //console.log("Track API fetched successfully");
-        return response.json();
-      })
-      .then(function (response) {
-        //console.log(response);
-
-        songDetails.songName = response.tracks[0].name;
-        songDetails.artistName = response.tracks[0].artistName;
-
-        //console.log(songDetails);
-
-        // Fetch from albums API
-        return fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY);
-      })
-      .then(function (response) {
-        // Albums API successful response
-        //console.log("Albums API fetched successfully");
-        return response.json();
-      })
-      .then(function (response) {
-        //console.log(response);
-
-        songDetails.released = (new Date(response.albums[0].released)).toDateString();
-        songDetails.label = response.albums[0].label;
-        songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
-
-        //console.log(songDetails);
-
-        // Fetch data from (albums) images API
-        return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
-      })
-      .then(function (response) {
-        // (Albums) images API successful response
-        //console.log("Images API fetched successfully");
-        return response.json();
-      })
-      .then(function (response) {
-        //console.log(response);
+        console.log(response);
 
         songDetails.songImageSrc = response.images[0].url;
 
@@ -101,12 +103,7 @@ function Song(props) {
         setSongDetailsData({ actualSongDetailsData: [songDetails], isSongDetailsDataRetrieved: true });
 
         // Fetch the list of tracks now
-        return fetch(songDetails.tracks);
-      })
-      .then(function (response) {
-        // Albums tracks API successful response
-        //console.log("Tracks have been fetched successfully.");
-        return response.json();
+        return asyncFetchListOfTracksData(songDetails.tracks);
       })
       .then(function (response) {
         // For every track in an album 
@@ -125,7 +122,7 @@ function Song(props) {
       })
       .catch(function (err) {
         // Error fetching image from API
-        //console.log(err);
+        console.log(err);
       });
   }
 
@@ -153,58 +150,11 @@ function Song(props) {
   const updateSongDetails = (shortcut) => {
     console.log("updateSongDetails(" + shortcut + ")");
 
-    let songDetails = {
-      songImageSrc: null,
-      songName: null,
-      artistName: null,
-      released: null,
-      label: null,
-      tracks: null,
-    };
-
     // Reset song details state
     //setSongDetailsData({ actualSongDetailsData: [], isSongDetailsDataRetrieved: true, isReloaded: true });
 
     // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
-    fetch('http://api.napster.com/v2.2/tracks/' + shortcut + '?apikey=' + API_KEY)
-      .then(function (response) {
-        // Track API successful response
-        //console.log("Track API fetched successfully");
-        return response.json();
-      })
-      .then(function (response) {
-        //console.log(response);
-
-        songDetails.songName = response.tracks[0].name;
-        songDetails.artistName = response.tracks[0].artistName;
-
-        //console.log(songDetails);
-
-        // Fetch from albums API
-        return fetch('https://api.napster.com/v2.2/albums/' + response.tracks[0].albumId + '?apikey=' + API_KEY);
-      })
-      .then(function (response) {
-        // Albums API successful response
-        //console.log("Albums API fetched successfully");
-        return response.json();
-      })
-      .then(function (response) {
-        //console.log(response);
-
-        songDetails.released = (new Date(response.albums[0].released)).toDateString();
-        songDetails.label = response.albums[0].label;
-        songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
-
-        //console.log(songDetails);
-
-        // Fetch data from (albums) images API
-        return fetch(response.albums[0].links.images.href + '?apikey=' + API_KEY);
-      })
-      .then(function (response) {
-        // (Albums) images API successful response
-        //console.log("Images API fetched successfully");
-        return response.json();
-      })
+    songDetailsAPICalls(shortcut)
       .then(function (response) {
         //console.log(response);
 
