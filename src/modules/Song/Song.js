@@ -3,10 +3,7 @@ import { useState } from 'react';
 import styles from './Song.module.css';
 import PlayButton from '../PlayButton/PlayButton';
 import LoadingImage from '../../assets/song-details-album-image-placeholder.gif';
-import asyncFetchTrackData from './asyncFetchTrackData.js';
-import asyncFetchAlbumsData from './asyncFetchAlbumsData.js';
-import asyncFetchAlbumImageData from './asyncFetchAlbumImageData.js';
-import asyncFetchListOfTracksData from './asyncFetchListOfTracksData.js';
+import * as apiCall from './asyncFetchSongPageData.js';
 
 function Song(props) {
 
@@ -59,7 +56,7 @@ function Song(props) {
     let albumHref;
 
     // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
-    await asyncFetchTrackData(trackShortcut, API_KEY).then(response => {
+    await apiCall.asyncFetchTrackData(trackShortcut, API_KEY).then(response => {
       //console.log(response);
 
       songDetails.songName = response.tracks[0].name;
@@ -68,7 +65,7 @@ function Song(props) {
       //console.log(songDetails);
 
       // Fetch from albums API
-      return asyncFetchAlbumsData(response.tracks[0].albumId, API_KEY);
+      return apiCall.asyncFetchAlbumsData(response.tracks[0].albumId, API_KEY);
     })
     .then(function (response) {
       //console.log(response);
@@ -80,10 +77,10 @@ function Song(props) {
       //console.log(songDetails);
 
       // Fetch data from (albums) images API
-      albumHref = response.albums[0].links.images.href;
+      albumHref = response.albums[0].links.images.href + "?apikey=" + API_KEY;
     })
 
-    return asyncFetchAlbumImageData(albumHref, API_KEY);
+    return apiCall.asyncFetchDataFromLink(albumHref);
   }
   
   // Song Details
@@ -102,7 +99,7 @@ function Song(props) {
         setSongDetailsData({ actualSongDetailsData: [songDetails], isSongDetailsDataRetrieved: true });
 
         // Fetch the list of tracks now
-        return asyncFetchListOfTracksData(songDetails.tracks);
+        return apiCall.asyncFetchDataFromLink(songDetails.tracks);
       })
       .then(function (response) {
         // For every track in an album 
