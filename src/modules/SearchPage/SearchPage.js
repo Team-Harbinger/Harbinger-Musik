@@ -1,21 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import './SearchPage.css';
-import asyncFetchTrackData from './asyncFetchTrackData.js';
+import React from "react";
+import { useState } from "react";
+import styles from "./SearchPage.module.css";
+import asyncFetchTrackData from "./asyncFetchTrackData.js";
 
 function SearchPage(props) {
-  console.log("update")
-  /** 
-  * Temporary fix to the problem where css styles from other component stylesheets
-  * will apply to html elements in this component if the id or class names
-  * match. Obviously, we only want styles from our own specifically imported
-  * stylesheet to be applied, so this is a problem. A fix could be to make sure 
-  * no id or class names are named the same as any selectors in other components' 
-  * stylesheets. We could assign a unique id to each component, and append the 
-  * unique id to every id or class in the component, which should guarantee that
-  * no two components share the same class or id names.
-  */
-  const uniqueComponentID = "search-page";
 
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [trackData, setTrackData] = useState({actualTrackData: [], isDataRetrieved: false});
@@ -55,20 +43,20 @@ function SearchPage(props) {
   if (trackData.isDataRetrieved && trackData.actualTrackData.length) {
     trackData.actualTrackData.forEach(track => {
       trackDOMElements.push(
-        <div className={`${uniqueComponentID + "-track"} ${uniqueComponentID + "-flex-row-container"}`}>
-          <img src={track.trackImageSrc} alt={"Album cover of " + track.trackName} className={uniqueComponentID + "-track-image"} />
-          <div className={`${uniqueComponentID + "-track-info-wrapper"} ${uniqueComponentID + "-flex-row-container"}`}>
-            <div className={`${uniqueComponentID + "-track-info"} ${uniqueComponentID + "-flex-row-container"}`}>
-              <div className={`${uniqueComponentID + "-track-order"}`}>
+        <div className={`${styles["track"]} ${styles["flex-row-container"]}`}>
+          <img src={track.trackImageSrc} alt={"Album cover of " + track.trackName} className={styles["track-image"]} />
+          <div className={`${styles["track-info-wrapper"]} ${styles["flex-row-container"]}`}>
+            <div className={`${styles["track-info"]} ${styles["flex-row-container"]}`}>
+              <div className={`${styles["track-order"]}`}>
                 <span>{`${track.trackOrder + "."}`}</span>
               </div>
-              <div className={`${uniqueComponentID + "-track-name-and-artist"} ${uniqueComponentID + "-flex-column-container"}`}>
-                <a href={"/song/" + track.trackShortcut} className={`${uniqueComponentID + "-link-to-track"}`}>
-                  <span className={`${uniqueComponentID + "-track-name"}`}>
+              <div className={`${styles["track-name-and-artist"]} ${styles["flex-column-container"]}`}>
+                <a href={"/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
+                  <span className={`${styles["track-name"]}`}>
                     {track.trackName}
                   </span>
                 </a>
-                <span className={`${uniqueComponentID + "-track-artist"}`}>
+                <span className={`${styles["track-artist"]}`}>
                   {track.trackArtist}
                 </span>
               </div>
@@ -87,13 +75,13 @@ function SearchPage(props) {
   */
 
   return (
-    <div id="search-page" className={uniqueComponentID + "-flex-column-container"}>
+    <div id="search-page" className={styles["flex-column-container"]}>
         {trackData.isDataRetrieved 
-          ? <div id={uniqueComponentID + "-top-matching-songs"} className={uniqueComponentID + "-flex-column-container"}>
+          ? <div id={styles["top-matching-songs"]} className={styles["flex-column-container"]}>
               <h2>Top Matching Songs</h2>
               {trackData.actualTrackData.length
                 ? 
-                  <div id={uniqueComponentID + "-track-list"} className={uniqueComponentID + "-flex-column-container"}>
+                  <div id={styles["track-list"]} className={styles["flex-column-container"]}>
                     {trackDOMElements}
                   </div>
                 :
@@ -101,7 +89,7 @@ function SearchPage(props) {
               }
             </div>
           :
-            <div id={uniqueComponentID + "-top-matching-songs"} className={uniqueComponentID + "-flex-column-container"}>
+            <div id={styles["top-matching-songs"]} className={styles["flex-column-container"]}>
               <h2>Top Matching Songs</h2>
               <span>Loading...</span>
             </div>
