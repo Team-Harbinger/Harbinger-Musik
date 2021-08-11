@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import './Genre.css';
 import PlayButton from '../PlayButton/PlayButton';
@@ -127,9 +127,7 @@ function Genre(props) {
           </div>
         </div>
         <div className="song-name column">
-          <div className="track-index">
-            <span class="track-index">{track.trackIndex + '. '}</span>
-          </div>
+          <div class="track-index" >{track.trackIndex + '.'}</div>
           <div className=".track-name-and-artist">
             <a href={"/song/" + track.trackShortcut} className="link-to-track">
               {track.songName}
