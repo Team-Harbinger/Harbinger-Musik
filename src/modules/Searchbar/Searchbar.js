@@ -1,7 +1,7 @@
-import React from 'react';
-import { useState } from 'react'; 
-import './Searchbar.css';
-import SearchIcon from '../../assets/searchicon.svg';
+import React from "react";
+import { useState } from "react"; 
+import styles from "./Searchbar.module.css";
+import SearchIcon from "../../assets/searchicon.svg";
 
 function Searchbar() {
   /**
@@ -33,7 +33,7 @@ function Searchbar() {
   }
 
   return (
-    <div className="search-container">
+    <div id={`${styles["search-container"]}`}>
       <input type="text" placeholder="" name="search" onChange={handleInputChange} onKeyPress={validateInput} value={searchString} />
         {
           /**  
@@ -45,7 +45,7 @@ function Searchbar() {
         }
         <a href={"/search?query=" + searchString + "&type=track"}  onClick={validateInput}>
           <button type="submit">
-            <img src={SearchIcon} className="search-icon" alt="search icon (click to search)" />
+            <img src={SearchIcon} id={`${styles["search-icon"]}`} alt="search icon (click to search)" />
           </button>
         </a>
     </div>
