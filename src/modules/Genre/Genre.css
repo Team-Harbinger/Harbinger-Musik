@@ -4,14 +4,14 @@
   grid-auto-flow: column;
 }
 
-.image-col {
-  align-items: left;
-  width: 500px;
+.image-col{
+  max-width: 100%;
+  height: auto;
 }
 
 .desc-col {
   align-items: right;
-  width: 700px;
+  width: auto;
 }
 
 .container {
@@ -20,9 +20,10 @@
   max-width: 400px;
 }
 
-.col {
-  align-items: center;
+.column {
   width: 250px;
+  display: flex;
+  align-items: start;
 }
 
 .genre-description {
@@ -35,11 +36,22 @@
 .genre-name {
   text-align: center;
   align-items: center;
+  font-size: 0.5em;
 }
 
 .artist-name {
-  margin-left: 12%;
   align-items: center;
+  font-size: 0.7em;
+}
+
+.track-name-and-artist {
+  align-items: flex-start;
+}
+
+.track-index {
+  vertical-align: top;
+  padding: 10px;
+  margin-top: -4%;
 }
 
 .genre-details {
