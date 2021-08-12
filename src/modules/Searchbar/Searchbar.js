@@ -4,7 +4,7 @@ import styles from "./Searchbar.module.css";
 import SearchIcon from "../../assets/searchicon.svg";
 
 function Searchbar() {
-  /**
+  /*
   * Holds the user's input. Updates every time the input changes 
   * and the input element's value is set to this (controlled component)
   */ 
@@ -36,7 +36,7 @@ function Searchbar() {
     <div id={`${styles["search-container"]}`}>
       <input type="text" placeholder="" name="search" onChange={handleInputChange} onKeyPress={validateInput} value={searchString} />
         {
-          /**  
+          /*  
           * In this case the href doesn't have to match the Router path exactly.
           * Anything after the /search can be found in the location prop that is passed
           * into the component that Router switches to after clicking the link, 

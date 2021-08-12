@@ -14,11 +14,10 @@ function Home() {
     asyncFetchGenreData(API_KEY).then(fetchedGenreData => {
       // console.log(fetchedGenreData);
       fetchedGenreData.genres.forEach(genre => {
-        // don't need to fetch() the images.
         genres.push({
-          /** 
-          *  genreName is what is displayed on the screen. genreShortcutName is used
-          *  for the API call in Genre.js.
+          /* 
+          * genreName is what is displayed on the screen. genreShortcutName is used
+          * for the API call in Genre.js.
           */
           genreName: genre.name,
           genreShortcutName: genre.shortcut,
@@ -28,9 +27,9 @@ function Home() {
       })
       console.log(genres);
       /*
-        Initially, the component will render without the genre images, because the API call
-        is async. That means we need to re-render the component once the call finishes. I use
-        useState() to update state and re-render the component with the genre images.
+      * Initially, the component will render without the genre images, because the API call
+      * is async. That means we need to re-render the component once the call finishes. I use
+      * useState() to update state and re-render the component with the genre images.
       */
       setGenreData(genres);
     })

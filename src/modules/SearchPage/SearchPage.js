@@ -8,7 +8,7 @@ function SearchPage(props) {
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [trackData, setTrackData] = useState({actualTrackData: [], isDataRetrieved: false});
   
-  /**
+  /*
   * Router automatically passes in some props. 
   * The query parameters for the API call can be found in props.location.search.
   * As of now props.location.search is in the form '?query=searchString&type=track'
@@ -67,7 +67,7 @@ function SearchPage(props) {
     })
   }
 
-  /**
+  /*
   * Explanation of below code:
   * If data has been retrieved, check if there is any data to be displayed.
   * If there is, display the tracks. If not, display 'no songs found'.
