@@ -15,29 +15,16 @@
 .About-body {
   color: black;
   margin-bottom: 5em;
-}
-
-.About-link { /* Change this if theme gets updated */
-  color: #575757;
-}
-
-.flex-row-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.flex-row-container > .flex-row-item {
-  flex: 1.5 1 33%;
-}
-
-.flex-row-item:nth-child(even) {
+  margin-right: 20%;
+  margin-left: 20%;
   background: #aaa;
-  /* border: 1rem solid gray; /* Border? */
-  padding: 3rem;
+  padding: 3em;
 }
 
-.flex-row-item:nth-child(odd) {
-  flex: 1 0;
+.About-link { /* Change this if theme gets updated */
+  color: #575757;
 }
