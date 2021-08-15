@@ -9,10 +9,12 @@
   justify-content: center;
   font-size: 3rem;
   color: black;
+  margin-bottom: 0.5em;
 }
 
 .About-body {
   color: black;
+  margin-bottom: 5em;
 }
 
 .About-link { /* Change this if theme gets updated */
