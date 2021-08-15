@@ -12,32 +12,38 @@ function Song(props) {
   const [songListData, setSongListData] = useState({ actualSongListData: [], isSongListDataRetrieved: false });
 
 
-  // For Song Details:
-  // Pass in track ID -> tracks API -> (song) name, artistName
-  // From tracks API -> albumID for albums API
+  /* 
+    For Song Details:
+    Pass in track ID -> tracks API -> (song) name, artistName
+    From tracks API -> albumID for albums API
 
-  // From albums API -> released, label
-  // From albums API -> links { image { href = images API }} for album image API
+    From albums API -> released, label
+    From albums API -> links { image { href = images API }} for album image API
 
-  // From albums images API -> 170 x 170 pixels image
+    From albums images API -> 170 x 170 pixels image
+  */
 
 
-  // For Song Album:
-  // From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
+  /*
+    For Song Album:
+    From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
+  */
 
-  /**
+  /*
   * pathname format: /song/trackShortcut
   * Must get trackShortcut by itself
   */
   const trackShortcut = props.location.pathname.slice(6, props.location.pathname.length);
   //console.log(trackShortcut);
 
-  // tra.327023393 - Kamikaze Eminem
-  // tra.549084779 - Astronaut
-  // tra.459083355 - Body Like A Back Road by Sam Hunt
-  // tra.524675774 - RAAAAAAAAAAAAAAAAUUUUUUUL
-  // WARNING: AUDIO DOES NOT PLAY FOR 50 CENT
-  // tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
+  /* 
+    tra.327023393 - Kamikaze Eminem
+    tra.549084779 - Astronaut
+    tra.459083355 - Body Like A Back Road by Sam Hunt
+    tra.524675774 - RAAAAAAAAAAAAAAAAUUUUUUUL
+    WARNING: AUDIO DOES NOT PLAY FOR 50 CENT
+    tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
+  */
 
   let songDetails = {
     songImageSrc: null,
@@ -48,9 +54,11 @@ function Song(props) {
     tracks: null,
   };
 
-  // The first time this is called is when the user first loads the page
-  // After that, any time the user clicks on a play button, this would
-  // be called
+  /* 
+    The first time this is called is when the user first loads the page
+    After that, any time the user clicks on a play button, this would
+    be called 
+  */
   async function songDetailsAPICalls(trackShortcut) {
 
     let albumHref;
