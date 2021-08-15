@@ -135,9 +135,9 @@ function Song(props) {
     console.log('added song details');
     songDetailsData.actualSongDetailsData.forEach(song => {
       songDetailsDOMElement.push(
-        <div className={`${styles.SongDetails} ${styles.row}`}>
-          <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className={`${styles.image} ${styles.col}`} />
-          <div className={`${styles.songInfo} ${styles.col}`}>
+        <div className={`${styles["Song-details"]} ${styles["row"]}`}>
+          <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className={`${styles["image"]} ${styles["col"]}`} />
+          <div className={`${styles["song-info"]} ${styles["col"]}`}>
             <p>SONG</p>
             <p>{song.songName}</p>
             <p>{song.artistName}</p>
@@ -179,13 +179,13 @@ function Song(props) {
     //console.log('updated song list');
     songListData.actualSongListData.forEach(track => {
       songListDOMElement.push(
-        <div className={`${styles.song} ${styles.row}`}>
-          <div className={`${styles.playButton} ${styles.col}`} onClick={() => updateSongDetails(track.trackShortcut)}>
+        <div className={`${styles["song"]} ${styles["row"]}`}>
+          <div className={`${styles["play-button"]} ${styles["col"]}`} onClick={() => updateSongDetails(track.trackShortcut)}>
             <PlayButton previewProp={track.trackPreviewSrc} />
           </div>
-          <div className={`${styles.songNameRow} ${styles.col}`}>
-            <span className={styles.songNameCol}>{track.trackIndex + '.'}</span>
-            <span className={`${styles.songNameCol} ${styles.songPageTrackName}`}>{track.trackName}</span>
+          <div className={`${styles["song-name-row"]} ${styles["col"]}`}>
+            <span className={styles["song-name-col"]}>{track.trackIndex + '.'}</span>
+            <span className={`${styles["song-name-col"]} ${styles["song-page-track-name"]}`}>{track.trackName}</span>
           </div>
         </div>
       )
@@ -193,24 +193,24 @@ function Song(props) {
   }
 
   return(
-    <div className={styles.Song}>
+    <div className={styles["Song"]}>
 
       {songDetailsData.isSongDetailsDataRetrieved ?
         songDetailsDOMElement :
-        <div className={`${styles.SongDetails} ${styles.row}`}>
-          <img src={LoadingImage} alt={"Loading"} className={`${styles.image} ${styles.col}`} />
-          <div className={`${styles.songInfo} ${styles.csfol}`}>
+        <div className={`${styles["Song-details"]} ${styles["row"]}`}>
+          <img src={LoadingImage} alt={"Loading"} className={`${styles["image"]} ${styles["col"]}`} />
+          <div className={`${styles["song-info"]} ${styles["col"]}`}>
             <h2>Song Details</h2>
             <span>Loading...</span>
           </div>
         </div>
       }
 
-      <div className={styles.SongAlbum}>
-        <h2 className={styles.albumHeader}>Songs</h2>
-        <div className={`${styles.songListContainer} ${styles.flexRowContainer}`}>
-          <div className={styles.flexRowItem}></div>
-          <div className={`${styles.songList} ${styles.flexRowItem}`}>
+      <div className={styles["Song-album"]}>
+        <h2 className={styles["album-header"]}>Songs</h2>
+        <div className={`${styles["song-list-container"]} ${styles["flex-row-container"]}`}>
+          <div className={styles["flex-row-item"]}></div>
+          <div className={`${styles["song-list"]} ${styles["flex-row-item"]}`}>
             {songListData.isSongListDataRetrieved ?
                 songListDOMElement :
                 <div>
@@ -218,7 +218,7 @@ function Song(props) {
                 </div>
             }
           </div>
-          <div className={styles.flexRowItem}></div>
+          <div className={styles["flex-row-item"]}></div>
         </div>
       </div>
 
