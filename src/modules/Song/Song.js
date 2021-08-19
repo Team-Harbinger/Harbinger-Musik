@@ -12,32 +12,38 @@ function Song(props) {
   const [songListData, setSongListData] = useState({ actualSongListData: [], isSongListDataRetrieved: false });
 
 
-  // For Song Details:
-  // Pass in track ID -> tracks API -> (song) name, artistName
-  // From tracks API -> albumID for albums API
+  /* 
+    For Song Details:
+    Pass in track ID -> tracks API -> (song) name, artistName
+    From tracks API -> albumID for albums API
 
-  // From albums API -> released, label
-  // From albums API -> links { image { href = images API }} for album image API
+    From albums API -> released, label
+    From albums API -> links { image { href = images API }} for album image API
 
-  // From albums images API -> 170 x 170 pixels image
+    From albums images API -> 170 x 170 pixels image
+  */
 
 
-  // For Song Album:
-  // From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
+  /*
+    For Song Album:
+    From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
+  */
 
-  /**
+  /*
   * pathname format: /song/trackShortcut
   * Must get trackShortcut by itself
   */
   const trackShortcut = props.location.pathname.slice(6, props.location.pathname.length);
   //console.log(trackShortcut);
 
-  // tra.327023393 - Kamikaze Eminem
-  // tra.549084779 - Astronaut
-  // tra.459083355 - Body Like A Back Road by Sam Hunt
-  // tra.524675774 - RAAAAAAAAAAAAAAAAUUUUUUUL
-  // WARNING: AUDIO DOES NOT PLAY FOR 50 CENT
-  // tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
+  /* 
+    tra.327023393 - Kamikaze Eminem
+    tra.549084779 - Astronaut
+    tra.459083355 - Body Like A Back Road by Sam Hunt
+    tra.524675774 - RAAAAAAAAAAAAAAAAUUUUUUUL
+    WARNING: AUDIO DOES NOT PLAY FOR 50 CENT
+    tra.10381859 - Into/ 50 Cent / The Massacre by 50 Cent
+  */
 
   let songDetails = {
     songImageSrc: null,
@@ -48,9 +54,11 @@ function Song(props) {
     tracks: null,
   };
 
-  // The first time this is called is when the user first loads the page
-  // After that, any time the user clicks on a play button, this would
-  // be called
+  /* 
+    The first time this is called is when the user first loads the page
+    After that, any time the user clicks on a play button, this would
+    be called 
+  */
   async function songDetailsAPICalls(trackShortcut) {
 
     let albumHref;
@@ -127,9 +135,9 @@ function Song(props) {
     console.log('added song details');
     songDetailsData.actualSongDetailsData.forEach(song => {
       songDetailsDOMElement.push(
-        <div className={`${styles.SongDetails} ${styles.row}`}>
-          <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className={`${styles.image} ${styles.col}`} />
-          <div className={`${styles.songInfo} ${styles.col}`}>
+        <div className={`${styles["Song-details"]} ${styles["row"]}`}>
+          <img src={song.songImageSrc} alt={"Image Representing " + song.songName} className={`${styles["image"]} ${styles["col"]}`} />
+          <div className={`${styles["song-info"]} ${styles["col"]}`}>
             <p>SONG</p>
             <p>{song.songName}</p>
             <p>{song.artistName}</p>
@@ -171,13 +179,13 @@ function Song(props) {
     //console.log('updated song list');
     songListData.actualSongListData.forEach(track => {
       songListDOMElement.push(
-        <div className={`${styles.song} ${styles.row}`}>
-          <div className={`${styles.playButton} ${styles.col}`} onClick={() => updateSongDetails(track.trackShortcut)}>
+        <div className={`${styles["song"]} ${styles["row"]}`}>
+          <div className={`${styles["play-button"]} ${styles["col"]}`} onClick={() => updateSongDetails(track.trackShortcut)}>
             <PlayButton previewProp={track.trackPreviewSrc} />
           </div>
-          <div className={`${styles.songNameRow} ${styles.col}`}>
-            <span className={styles.songNameCol}>{track.trackIndex + '.'}</span>
-            <span className={`${styles.songNameCol} ${styles.songPageTrackName}`}>{track.trackName}</span>
+          <div className={`${styles["song-name-row"]} ${styles["col"]}`}>
+            <span className={styles["song-name-col"]}>{track.trackIndex + '.'}</span>
+            <span className={`${styles["song-name-col"]} ${styles["song-page-track-name"]}`}>{track.trackName}</span>
           </div>
         </div>
       )
@@ -185,24 +193,24 @@ function Song(props) {
   }
 
   return(
-    <div className={styles.Song}>
+    <div className={styles["Song"]}>
 
       {songDetailsData.isSongDetailsDataRetrieved ?
         songDetailsDOMElement :
-        <div className={`${styles.SongDetails} ${styles.row}`}>
-          <img src={LoadingImage} alt={"Loading"} className={`${styles.image} ${styles.col}`} />
-          <div className={`${styles.songInfo} ${styles.csfol}`}>
+        <div className={`${styles["Song-details"]} ${styles["row"]}`}>
+          <img src={LoadingImage} alt={"Loading"} className={`${styles["image"]} ${styles["col"]}`} />
+          <div className={`${styles["song-info"]} ${styles["col"]}`}>
             <h2>Song Details</h2>
             <span>Loading...</span>
           </div>
         </div>
       }
 
-      <div className={styles.SongAlbum}>
-        <h2 className={styles.albumHeader}>Songs</h2>
-        <div className={`${styles.songListContainer} ${styles.flexRowContainer}`}>
-          <div className={styles.flexRowItem}></div>
-          <div className={`${styles.songList} ${styles.flexRowItem}`}>
+      <div className={styles["Song-album"]}>
+        <h2 className={styles["album-header"]}>Songs</h2>
+        <div className={`${styles["song-list-container"]} ${styles["flex-row-container"]}`}>
+          <div className={styles["flex-row-item"]}></div>
+          <div className={`${styles["song-list"]} ${styles["flex-row-item"]}`}>
             {songListData.isSongListDataRetrieved ?
                 songListDOMElement :
                 <div>
@@ -210,7 +218,7 @@ function Song(props) {
                 </div>
             }
           </div>
-          <div className={styles.flexRowItem}></div>
+          <div className={styles["flex-row-item"]}></div>
         </div>
       </div>
 

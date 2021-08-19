@@ -10,7 +10,7 @@
   width: 250px;
 }
 
-.SongDetails {
+.Song-details {
   gap: 5%;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -21,39 +21,41 @@
   background-color: #555;
 }
 
-.songInfo {
+.song-info {
   text-align: center;
   align-items: center;
 }
 
-.flexRowContainer {
+.flex-row-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-.flexRowContainer > .flexRowItem {
+.flex-row-container > .flex-row-item {
   flex: 0 0 10;
 }
 
-.flexRowItem:nth-child(even) {
+.flex-row-item:nth-child(even) {
   background: #aaa;
   flex: 1.5 1 15%;
 }
 
-.SongAlbum {
+.Song-album {
   text-align: center;
 }
 
-.songList {
+.song-list {
   background-color: rgb(182, 182, 182);
   justify-content: space-evenly;
   margin-left: 20%;
   margin-right: 20%;
+  margin-bottom: 5em;
+  padding-bottom: 4em;
 }
 
-.songNameRow {
+.song-name-row {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -62,23 +64,18 @@
   /* border: 2px red solid; */
 }
 
-.songNameCol {
+.song-name-col {
   flex-direction: column;
 }
 
-.songPageTrackName {
+.song-page-track-name {
   margin-left: 10px;
   /* border: 2px yellow solid; */
 }
 
-.playButton {
+.play-button {
   text-align: center;
   align-items: center;
-}
-
-.playButtonImage {
-  width: 50px;
-  height: 50px;
 }
 
 .song {
