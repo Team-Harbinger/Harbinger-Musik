@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState } from 'react'; 
-import './Searchbar.css';
-import SearchIcon from '../../assets/searchicon.svg';
+import React from "react";
+import { useState } from "react"; 
+import styles from "./Searchbar.module.css";
+import SearchIcon from "../../assets/searchicon.svg";
 
 function Searchbar() {
-  /**
+  /*
   * Holds the user's input. Updates every time the input changes 
   * and the input element's value is set to this (controlled component)
   */ 
@@ -33,10 +33,10 @@ function Searchbar() {
   }
 
   return (
-    <div className="search-container">
+    <div id={`${styles["search-container"]}`}>
       <input type="text" placeholder="" name="search" onChange={handleInputChange} onKeyPress={validateInput} value={searchString} />
         {
-          /**  
+          /*  
           * In this case the href doesn't have to match the Router path exactly.
           * Anything after the /search can be found in the location prop that is passed
           * into the component that Router switches to after clicking the link, 
@@ -45,7 +45,7 @@ function Searchbar() {
         }
         <a href={"/search?query=" + searchString + "&type=track"}  onClick={validateInput}>
           <button type="submit">
-            <img src={SearchIcon} className="search-icon" alt="search icon (click to search)" />
+            <img src={SearchIcon} id={`${styles["search-icon"]}`} alt="search icon (click to search)" />
           </button>
         </a>
     </div>

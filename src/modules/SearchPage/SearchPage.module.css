@@ -1,11 +1,11 @@
-.search-page-flex-column-container {
+.flex-column-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* border: 2px green solid; */
 }
 
-.search-page-flex-row-container {
+.flex-row-container {
   display: flex;
   flex-direction: row;
   /* align-items: center; */
@@ -17,17 +17,17 @@
 }
 
 
-#search-page-top-matching-songs {
+#top-matching-songs {
   /* border: 2px purple dotted; */
   width: 80%;
 }
 
-#search-page-top-matching-songs h2 {
+#top-matching-songs h2 {
   font-weight: normal;
   font-size: 3em;
 }
 
-#search-page-track-list {
+#track-list {
   /* border: 2px blue dashed; */
   align-items: flex-start;
   background-color: rgb(182, 182, 182);
@@ -35,7 +35,7 @@
   max-width: 80%;
 }
 
-.search-page-track {
+.track {
   /* margin-left: 20px;
   margin-top: 20px;
   margin-right: 20px;
@@ -45,47 +45,47 @@
   /* width: 80%; */
 }
 
-.search-page-track-image {
+.track-image {
   height: 150px;
   width: 150px;
 }
 
 /* Used to center the info vertically */
-.search-page-track-info-wrapper {
+.track-info-wrapper {
   align-items: center;
   margin-left: 60px;
   font-size: 24px;
   /* border: 2px red solid; */
 }
 
-.search-page-track-info {
+.track-info {
   /* border: 2px white solid; */
 }
 
-.search-page-track-order {
+.track-order {
   /* border: 2px black dashed; */
 }
 
-.search-page-track-name-and-artist {
+.track-name-and-artist {
   margin-left: 10px;
   align-items: flex-start;
   /* border: 2px yellow solid; */
 }
 
-.search-page-link-to-track {
+.link-to-track {
   color: black;
   text-decoration: none;
 }
 
-.search-page-link-to-track:hover {
+.link-to-track:hover {
   color: #3f3cf8;
   text-decoration: underline;
 }
 
-.search-page-track-name {
+.track-name {
   /* border: 2px blue solid; */
 }
 
-.search-page-track-artist {
+.track-artist {
   /* border: 2px purple solid; */
 }
