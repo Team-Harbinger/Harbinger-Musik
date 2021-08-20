@@ -7,11 +7,11 @@ import Genre from './modules/Genre/Genre.js';
 import Song from './modules/Song/Song.js';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import HashRouter from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename='/Harbinger-Musik'>
       <Navbar />
       <Switch>
         <Route path='/' exact component={Home} />
@@ -20,7 +20,7 @@ function App() {
         <Route path='/genre' component={Genre} />
         <Route path='/song' component={Song} />
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 

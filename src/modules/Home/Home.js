@@ -43,7 +43,7 @@ function Home() {
   genreData.forEach(genre => {
     genreDOMElements.push(
       <div className={`${styles["genre"]}`}>
-        <a href={"/genre/" + genre.genreShortcutName}>
+        <a href={"/#/genre/" + genre.genreShortcutName}>
           <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["genre-image"]}`} />
           <span className={`${styles["genre-image-description"]}`}>{genre.genreName}</span>
         </a>

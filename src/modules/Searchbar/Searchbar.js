@@ -27,7 +27,7 @@ function Searchbar() {
     else {
       if (e.key === "Enter" && searchString !== "") {
         // this method of changing the page seems to work with router
-        window.location.href = "/search?query=" + searchString + "&type=track";
+        window.location.href = "/#/search?query=" + searchString + "&type=track";
       }
     }
   }
@@ -43,7 +43,7 @@ function Searchbar() {
           * specifically, in props.location.search
           */
         }
-        <a href={"/search?query=" + searchString + "&type=track"}  onClick={validateInput}>
+        <a href={"/#/search?query=" + searchString + "&type=track"}  onClick={validateInput}>
           <button type="submit">
             <img src={SearchIcon} id={`${styles["search-icon"]}`} alt="search icon (click to search)" />
           </button>

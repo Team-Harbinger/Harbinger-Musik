@@ -129,7 +129,7 @@ function Genre(props) {
         <div className="song-name column">
           <div class="track-index" >{track.trackIndex + '.'}</div>
           <div className=".track-name-and-artist">
-            <a href={"/song/" + track.trackShortcut} className="link-to-track">
+            <a href={"/#/song/" + track.trackShortcut} className="link-to-track">
               {track.songName}
             </a>
             <div className="artist-name">

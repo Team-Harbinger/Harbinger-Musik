@@ -51,7 +51,7 @@ function SearchPage(props) {
                 <span>{`${track.trackOrder + "."}`}</span>
               </div>
               <div className={`${styles["track-name-and-artist"]} ${styles["flex-column-container"]}`}>
-                <a href={"/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
+                <a href={"/#/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
                   <span className={`${styles["track-name"]}`}>
                     {track.trackName}
                   </span>
