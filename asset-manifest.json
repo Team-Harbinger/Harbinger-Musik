@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Harbinger-Musik/static/css/main.70f5bec3.chunk.css",
-    "main.js": "/Harbinger-Musik/static/js/main.a218ff59.chunk.js",
-    "main.js.map": "/Harbinger-Musik/static/js/main.a218ff59.chunk.js.map",
+    "main.js": "/Harbinger-Musik/static/js/main.ee709a3e.chunk.js",
+    "main.js.map": "/Harbinger-Musik/static/js/main.ee709a3e.chunk.js.map",
     "runtime-main.js": "/Harbinger-Musik/static/js/runtime-main.37c8f195.js",
     "runtime-main.js.map": "/Harbinger-Musik/static/js/runtime-main.37c8f195.js.map",
     "static/js/2.c7a35cbb.chunk.js": "/Harbinger-Musik/static/js/2.c7a35cbb.chunk.js",
@@ -42,6 +42,6 @@
     "static/js/runtime-main.37c8f195.js",
     "static/js/2.c7a35cbb.chunk.js",
     "static/css/main.70f5bec3.chunk.css",
-    "static/js/main.a218ff59.chunk.js"
+    "static/js/main.ee709a3e.chunk.js"
   ]
 }
