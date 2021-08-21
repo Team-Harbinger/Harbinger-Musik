@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react"; 
 import styles from "./Searchbar.module.css";
 import SearchIcon from "../../assets/searchicon.svg";
+import { Link } from "react-router-dom";
 
 function Searchbar() {
   /*
@@ -18,16 +19,18 @@ function Searchbar() {
   function validateInput(e) {
     // check whether event was a keypress or a click. 
     if (e.key === undefined) {
+      console.log("click");
       // we don't want user to submit empty string
       if (searchString === "") {
-        // console.log("nothing in searchbar, don't search");
+        console.log("nothing in searchbar, don't search");
         e.preventDefault();
       }
+      console.log("submit")
     }
     else {
       if (e.key === "Enter" && searchString !== "") {
         // this method of changing the page seems to work with router
-        window.location.href = "/#/search?query=" + searchString + "&type=track";
+        window.location.href = "/Harbinger-Musik/search?query=" + searchString + "&type=track";
       }
     }
   }
@@ -43,7 +46,13 @@ function Searchbar() {
           * specifically, in props.location.search
           */
         }
-        <a href={"/#/search?query=" + searchString + "&type=track"}  onClick={validateInput}>
+        {/* <Link to={"/search?query=" + searchString + "&type=track"}>
+          <button type="submit" onClick={validateInput}>
+            <img src={SearchIcon} id={`${styles["search-icon"]}`} alt="search icon (click to search)" />
+          </button>
+        </Link> */}
+
+        <a href={"/Harbinger-Musik/search?query=" + searchString + "&type=track"} onClick={validateInput}>
           <button type="submit">
             <img src={SearchIcon} id={`${styles["search-icon"]}`} alt="search icon (click to search)" />
           </button>

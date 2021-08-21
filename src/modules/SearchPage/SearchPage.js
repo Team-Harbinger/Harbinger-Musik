@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styles from "./SearchPage.module.css";
 import asyncFetchTrackData from "./asyncFetchTrackData.js";
+import { Link } from "react-router-dom";
 
 function SearchPage(props) {
 
@@ -51,11 +52,19 @@ function SearchPage(props) {
                 <span>{`${track.trackOrder + "."}`}</span>
               </div>
               <div className={`${styles["track-name-and-artist"]} ${styles["flex-column-container"]}`}>
-                <a href={"/#/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
+                <span className={`${styles["link-to-track"]}`}>
+                  <Link to={"/song/" + track.trackShortcut}>
+                    <span className={`${styles["track-name"]}`}>
+                      {track.trackName}
+                    </span>
+                  </Link>
+                </span>
+                
+                {/* <a href={"/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
                   <span className={`${styles["track-name"]}`}>
                     {track.trackName}
                   </span>
-                </a>
+                </a> */}
                 <span className={`${styles["track-artist"]}`}>
                   {track.trackArtist}
                 </span>

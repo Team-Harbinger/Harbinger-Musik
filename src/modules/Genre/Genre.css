@@ -102,12 +102,12 @@
   font-size:1.9em;
 }
 
-.link-to-track {
+.link-to-track a{
   color: black;
   text-decoration: none;
 }
 
-.link-to-track:hover {
+.link-to-track a:hover {
   color: #3f3cf8;
   text-decoration: underline;
 }

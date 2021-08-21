@@ -30,13 +30,13 @@
   margin-right: 2rem;
 }
 
-.nav-links {
+.nav-links a {
   color: #EEEEEE;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
 
-.nav-links:hover {
+.nav-links a:hover {
   background-color:violet;
   border-radius: 4px;
   transition: all 0.2s ease-out;

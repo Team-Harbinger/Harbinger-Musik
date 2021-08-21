@@ -3,6 +3,7 @@ import { MenuItems } from "./MenuItems";
 import './Navbar.css';
 import AppLogo from '../../assets/applogo.svg';
 import Searchbar from '../Searchbar/Searchbar.js';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -12,9 +13,11 @@ function Navbar() {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a className={item.cName} href={item.url}>
-                  {item.title}
-                </a>
+                <span className={item.cName}>
+                  <Link to={item.url} >
+                    {item.title}
+                  </Link>
+                </span>
               </li>
             )
           })}
