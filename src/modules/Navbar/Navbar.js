@@ -3,9 +3,10 @@ import { MenuItems } from "./MenuItems";
 import './Navbar.css';
 import AppLogo from '../../assets/applogo.svg';
 import Searchbar from '../Searchbar/Searchbar.js';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function Navbar() {
+  const APP_BASENAME = "/Harbinger-Musik";
   return (
     <div>
       <nav className="NavbarItems">
@@ -13,11 +14,14 @@ function Navbar() {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <span className={item.cName}>
+                {/* <span className={item.cName}>
                   <Link to={item.url} >
                     {item.title}
                   </Link>
-                </span>
+                </span> */}
+                <a className={item.cName} href={APP_BASENAME + item.url}>
+                  {item.title}
+                </a>
               </li>
             )
           })}

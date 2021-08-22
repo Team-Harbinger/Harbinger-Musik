@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Genre.css';
 import PlayButton from '../PlayButton/PlayButton';
 import genreImages from '../../assets/genre_images/genreImages';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function stripHtml(html) {
   let tmp = document.createElement("DIV");
@@ -14,6 +14,8 @@ function stripHtml(html) {
 function Genre(props) {
 
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
+  const APP_BASENAME = "/Harbinger-Musik";
+
   const [genreDetailsData, setGenreDetailsData] = useState([]);
   const [songListData, setSongListData] = useState([]);
 
@@ -130,11 +132,14 @@ function Genre(props) {
         <div className="song-name column">
           <div class="track-index" >{track.trackIndex + '.'}</div>
           <div className=".track-name-and-artist">
-            <span className="link-to-track">
+            {/* <span className="link-to-track">
               <Link to={"/song/" + track.trackShortcut}>
                 {track.songName}
               </Link>
-            </span>
+            </span> */}
+            <a href={APP_BASENAME + "/song/" + track.trackShortcut} className="link-to-track" >
+              {track.songName}
+            </a>
             <div className="artist-name">
               {track.artistName}
             </div>

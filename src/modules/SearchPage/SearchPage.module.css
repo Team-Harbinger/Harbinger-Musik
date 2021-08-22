@@ -72,7 +72,21 @@
   /* border: 2px yellow solid; */
 }
 
-.link-to-track a {
+/* STYLES WHEN USING LINK COMPONENT (COMMENT ANCHOR TAG CODE OUT) */
+
+/* .link-to-track a {
+  color: black;
+  text-decoration: none;
+}
+
+.link-to-track a:hover {
+  color: #3f3cf8;
+  text-decoration: underline;
+} */
+
+/* STYLES WHEN USING ANCHOR TAG (COMMENT LINK COMPONENT CODE OUT) */
+
+.link-to-track {
   color: black;
   text-decoration: none;
 }

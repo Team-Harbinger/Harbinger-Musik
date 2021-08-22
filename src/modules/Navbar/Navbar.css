@@ -30,13 +30,29 @@
   margin-right: 2rem;
 }
 
-.nav-links a {
+/* STYLES WHEN USING LINK COMPONENT (COMMENT ANCHOR TAG CODE OUT) */
+
+/* .nav-links a {
   color: #EEEEEE;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
 
 .nav-links a:hover {
+  background-color:violet;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+} */
+
+/* STYLES WHEN USING ANCHOR TAG (COMMENT LINK COMPONENT CODE OUT) */
+
+.nav-links {
+  color: #EEEEEE;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links:hover {
   background-color:violet;
   border-radius: 4px;
   transition: all 0.2s ease-out;

@@ -5,6 +5,7 @@ import SearchIcon from "../../assets/searchicon.svg";
 import { Link } from "react-router-dom";
 
 function Searchbar() {
+  const APP_BASENAME = "/Harbinger-Musik";
   /*
   * Holds the user's input. Updates every time the input changes 
   * and the input element's value is set to this (controlled component)
@@ -30,7 +31,7 @@ function Searchbar() {
     else {
       if (e.key === "Enter" && searchString !== "") {
         // this method of changing the page seems to work with router
-        window.location.href = "/Harbinger-Musik/search?query=" + searchString + "&type=track";
+        window.location.href = APP_BASENAME + "/search?query=" + searchString + "&type=track";
       }
     }
   }
@@ -52,7 +53,7 @@ function Searchbar() {
           </button>
         </Link> */}
 
-        <a href={"/Harbinger-Musik/search?query=" + searchString + "&type=track"} onClick={validateInput}>
+        <a href={APP_BASENAME + "/search?query=" + searchString + "&type=track"} onClick={validateInput}>
           <button type="submit">
             <img src={SearchIcon} id={`${styles["search-icon"]}`} alt="search icon (click to search)" />
           </button>
