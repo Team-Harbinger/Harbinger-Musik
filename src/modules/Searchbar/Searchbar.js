@@ -37,7 +37,7 @@ function Searchbar() {
 
   return (
     <div id={`${styles["search-container"]}`}>
-      <input type="text" placeholder="" name="search" onChange={handleInputChange} onKeyPress={validateInput} value={searchString} />
+      <input type="text" placeholder="Search for a song" name="search" onChange={handleInputChange} onKeyPress={validateInput} value={searchString} />
         {
           /*  
           * In this case the href doesn't have to match the Router path exactly.
