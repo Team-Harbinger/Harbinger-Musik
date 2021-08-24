@@ -44,7 +44,7 @@ function Home() {
   let genreDOMElements = [];
   genreData.forEach(genre => {
     genreDOMElements.push(
-      <div className={`${styles["genre"]}`}>
+      <div className={`${styles["genre"]}`} key={genre.genreName}>
         {/* <Link to={"/genre/" + genre.genreShortcutName} >
           <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["genre-image"]}`} />
           <span className={`${styles["genre-image-description"]}`}>{genre.genreName}</span>

@@ -23,7 +23,7 @@
 .column {
   width: 250px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .genre-description {

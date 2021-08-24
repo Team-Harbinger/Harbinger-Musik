@@ -2,7 +2,7 @@ import React from 'react';
 import './PlayButton.css';
 import play_button_asset from '../../assets/play_button.png';
 
-function PlayButton(prop) {
+function PlayButton(props) {
 
   // On click event
   const start = () => {
@@ -14,13 +14,13 @@ function PlayButton(prop) {
     // (pausing, pasuing when another song starts playing, etc),
     // we might have to limit how many tracks are displayed on
     // one page
-    let audio = new Audio(prop.previewProp);
+    let audio = new Audio(props.previewProp);
     audio.play();
   }
 
   return (
     <div>
-      <img onClick={start} src={play_button_asset} alt="Play Button" className="play-button-image" />
+      <img onClick={() => props.onClickHandler(props.previewProp)} src={play_button_asset} alt="Play Button" className="play-button-image" />
       <div className="powered">Powered by Napster</div>
     </div>
   );

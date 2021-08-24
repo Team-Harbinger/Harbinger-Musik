@@ -10,8 +10,7 @@ function Song(props) {
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [songDetailsData, setSongDetailsData] = useState({ actualSongDetailsData: [], isSongDetailsDataRetrieved: false });
   const [songListData, setSongListData] = useState({ actualSongListData: [], isSongListDataRetrieved: false });
-
-
+  const [audioPlayer, setAudioPlayer] = useState({audioObject: new Audio(), currentAudioSrc: null});
   /* 
     For Song Details:
     Pass in track ID -> tracks API -> (song) name, artistName
@@ -22,7 +21,21 @@ function Song(props) {
 
     From albums images API -> 170 x 170 pixels image
   */
-
+  function playAudio(newAudioSrc) {
+    // if try to play audio that is already playing, just stop it
+    if (newAudioSrc === audioPlayer.currentAudioSrc) {
+      audioPlayer.audioObject.pause();
+      audioPlayer.audioObject.src = null;
+      audioPlayer.currentAudioSrc = null;
+    }
+    else {
+      audioPlayer.currentAudioSrc = newAudioSrc;
+      audioPlayer.audioObject.pause();
+      audioPlayer.audioObject.src = newAudioSrc;
+      audioPlayer.audioObject.load();
+      audioPlayer.audioObject.play();
+    }
+  }
 
   /*
     For Song Album:
@@ -181,7 +194,7 @@ function Song(props) {
       songListDOMElement.push(
         <div className={`${styles["song"]} ${styles["row"]}`}>
           <div className={`${styles["play-button"]} ${styles["col"]}`} onClick={() => updateSongDetails(track.trackShortcut)}>
-            <PlayButton previewProp={track.trackPreviewSrc} />
+            <PlayButton previewProp={track.trackPreviewSrc} onClickHandler={playAudio} />
           </div>
           <div className={`${styles["song-name-row"]} ${styles["col"]}`}>
             <span className={styles["song-name-col"]}>{track.trackIndex + '.'}</span>

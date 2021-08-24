@@ -18,6 +18,23 @@ function Genre(props) {
 
   const [genreDetailsData, setGenreDetailsData] = useState([]);
   const [songListData, setSongListData] = useState([]);
+  const [audioPlayer, setAudioPlayer] = useState({audioObject: new Audio(), currentAudioSrc: null});
+
+  function playAudio(newAudioSrc) {
+    // if try to play audio that is already playing, just stop it
+    if (newAudioSrc === audioPlayer.currentAudioSrc) {
+      audioPlayer.audioObject.pause();
+      audioPlayer.audioObject.src = null;
+      audioPlayer.currentAudioSrc = null;
+    }
+    else {
+      audioPlayer.currentAudioSrc = newAudioSrc;
+      audioPlayer.audioObject.pause();
+      audioPlayer.audioObject.src = newAudioSrc;
+      audioPlayer.audioObject.load();
+      audioPlayer.audioObject.play();
+    }
+  }
 
   // To get Genre Description:
   // Pass in genre ID -> genre API -> (genre) name, description
@@ -124,13 +141,13 @@ function Genre(props) {
             <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image column" />
             <div className="overlay">
               <div className="icon">
-                <PlayButton previewProp={track.trackPreviewSrc} />
+                <PlayButton previewProp={track.trackPreviewSrc} onClickHandler={playAudio} />
               </div>
             </div>
           </div>
         </div>
         <div className="song-name column">
-          <div class="track-index" >{track.trackIndex + '.'}</div>
+          <div className="track-index" >{track.trackIndex + '.'}</div>
           <div className=".track-name-and-artist">
             {/* <span className="link-to-track">
               <Link to={"/song/" + track.trackShortcut}>
