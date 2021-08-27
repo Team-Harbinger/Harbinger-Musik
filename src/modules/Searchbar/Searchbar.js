@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react"; 
 import styles from "./Searchbar.module.css";
 import SearchIcon from "../../assets/searchicon.svg";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Searchbar() {
   const APP_BASENAME = "/Harbinger-Musik";

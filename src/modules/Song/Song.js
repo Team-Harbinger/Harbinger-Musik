@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from './Song.module.css';
-import PlayButton from '../PlayButton/PlayButton';
+import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import LoadingImage from '../../assets/song-details-album-image-placeholder.gif';
 import * as apiCall from './asyncFetchSongPageData.js';
 
@@ -10,8 +10,9 @@ function Song(props) {
   const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [songDetailsData, setSongDetailsData] = useState({ actualSongDetailsData: [], isSongDetailsDataRetrieved: false });
   const [songListData, setSongListData] = useState({ actualSongListData: [], isSongListDataRetrieved: false });
-
-
+  // const [audioPlayer, setAudioPlayer] = useState({audioObject: new Audio(), currentAudioSrc: null});
+  // const currentAudioSrc = useRef(null);
+  const [currentAudioSrc, setCurrentAudioSrc] = useState(null);
   /* 
     For Song Details:
     Pass in track ID -> tracks API -> (song) name, artistName
@@ -23,7 +24,16 @@ function Song(props) {
     From albums images API -> 170 x 170 pixels image
   */
 
+  /*
+    normally, need to set state here to re-render the play buttons, but a setState is
+    already done when changing the song info to reflect the current playing song
+  */
 
+  function updateCurrentAudioSrc(newAudioSrc) {
+    // currentAudioSrc.current = newAudioSrc;
+    setCurrentAudioSrc(newAudioSrc);
+  }
+  
   /*
     For Song Album:
     From albums API, use the API link to find tracks -> list of tracks each has: (song) name, previewURL
@@ -181,7 +191,7 @@ function Song(props) {
       songListDOMElement.push(
         <div className={`${styles["song"]} ${styles["row"]}`}>
           <div className={`${styles["play-button"]} ${styles["col"]}`} onClick={() => updateSongDetails(track.trackShortcut)}>
-            <PlayButton previewProp={track.trackPreviewSrc} />
+            <AudioPlayer previewProp={track.trackPreviewSrc} onClickHandler={updateCurrentAudioSrc} audioPlayerStatus={track.trackPreviewSrc === currentAudioSrc ? 1 : 0} />
           </div>
           <div className={`${styles["song-name-row"]} ${styles["col"]}`}>
             <span className={styles["song-name-col"]}>{track.trackIndex + '.'}</span>

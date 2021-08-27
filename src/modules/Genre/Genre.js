@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Genre.css';
-import PlayButton from '../PlayButton/PlayButton';
+import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import genreImages from '../../assets/genre_images/genreImages';
 // import { Link } from 'react-router-dom';
 
@@ -18,6 +18,11 @@ function Genre(props) {
 
   const [genreDetailsData, setGenreDetailsData] = useState([]);
   const [songListData, setSongListData] = useState([]);
+  const [currentAudioSrc, setCurrentAudioSrc] = useState(null);
+
+  function updateCurrentAudioSrc(newAudioSrc) {
+    setCurrentAudioSrc(newAudioSrc);
+  }
 
   // To get Genre Description:
   // Pass in genre ID -> genre API -> (genre) name, description
@@ -124,13 +129,17 @@ function Genre(props) {
             <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image column" />
             <div className="overlay">
               <div className="icon">
-                <PlayButton previewProp={track.trackPreviewSrc} />
+                <AudioPlayer 
+                  previewProp={track.trackPreviewSrc} 
+                  onClickHandler={updateCurrentAudioSrc} 
+                  audioPlayerStatus={track.trackPreviewSrc === currentAudioSrc ? 1 : 0} 
+                />
               </div>
             </div>
           </div>
         </div>
         <div className="song-name column">
-          <div class="track-index" >{track.trackIndex + '.'}</div>
+          <div className="track-index" >{track.trackIndex + '.'}</div>
           <div className=".track-name-and-artist">
             {/* <span className="link-to-track">
               <Link to={"/song/" + track.trackShortcut}>
