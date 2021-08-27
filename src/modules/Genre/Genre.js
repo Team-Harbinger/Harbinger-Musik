@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Genre.css';
-import PlayButton from '../PlayButton/PlayButton';
+import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import genreImages from '../../assets/genre_images/genreImages';
 // import { Link } from 'react-router-dom';
 
@@ -129,7 +129,7 @@ function Genre(props) {
             <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image column" />
             <div className="overlay">
               <div className="icon">
-                <PlayButton 
+                <AudioPlayer 
                   previewProp={track.trackPreviewSrc} 
                   onClickHandler={updateCurrentAudioSrc} 
                   audioPlayerStatus={track.trackPreviewSrc === currentAudioSrc ? 1 : 0} 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 import styles from './Song.module.css';
-import PlayButton from '../PlayButton/PlayButton';
+import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import LoadingImage from '../../assets/song-details-album-image-placeholder.gif';
 import * as apiCall from './asyncFetchSongPageData.js';
 
@@ -189,7 +189,7 @@ function Song(props) {
       songListDOMElement.push(
         <div className={`${styles["song"]} ${styles["row"]}`}>
           <div className={`${styles["play-button"]} ${styles["col"]}`} onClick={() => updateSongDetails(track.trackShortcut)}>
-            <PlayButton previewProp={track.trackPreviewSrc} onClickHandler={updateCurrentAudioSrc} audioPlayerStatus={track.trackPreviewSrc === currentAudioSrc.current ? 1 : 0} />
+            <AudioPlayer previewProp={track.trackPreviewSrc} onClickHandler={updateCurrentAudioSrc} audioPlayerStatus={track.trackPreviewSrc === currentAudioSrc.current ? 1 : 0} />
           </div>
           <div className={`${styles["song-name-row"]} ${styles["col"]}`}>
             <span className={styles["song-name-col"]}>{track.trackIndex + '.'}</span>

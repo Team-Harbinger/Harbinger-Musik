@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import styles from './PlayButton.module.css';
+import styles from './AudioPlayer.module.css';
 import play_button_asset from '../../assets/play_button.png';
 import stop_button_asset from '../../assets/stop_button.svg';
 import loading_asset from '../../assets/applogo.svg';
