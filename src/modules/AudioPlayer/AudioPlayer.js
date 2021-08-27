@@ -5,7 +5,7 @@ import play_button_asset from '../../assets/play_button.png';
 import stop_button_asset from '../../assets/stop_button.svg';
 import loading_asset from '../../assets/applogo.svg';
 
-function PlayButton(props) {
+function AudioPlayer(props) {
   // 0 = stopped, 1 = loading, 2 = playing
   const [audioPlayerStatus, setAudioPlayerStatus] = useState(0);
   const audioPlayerRef = useRef();
@@ -85,6 +85,7 @@ function PlayButton(props) {
     default:
       console.log("Error: audio player state took on an impossible value");
   }
+
   return (
     <div>
       <audio id={props.previewProp} ref={audioPlayerRef} src={props.previewProp}></audio>
@@ -92,11 +93,11 @@ function PlayButton(props) {
         onClick={() => handleClick()} 
         src={icon} 
         alt="Play Button" 
-        className={styles["play-button-image"]} 
+        className={`${audioPlayerStatus === 1 ? styles["rotate"] : ""} ${styles["play-button-image"]}`} 
       />
       <div className={styles["powered"]}>Powered by Napster</div>
     </div>
   );
 }
 
-export default PlayButton;
+export default AudioPlayer;
