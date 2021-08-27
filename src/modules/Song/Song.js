@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import styles from './Song.module.css';
 import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import LoadingImage from '../../assets/song-details-album-image-placeholder.gif';
@@ -120,6 +120,7 @@ function Song(props) {
         return apiCall.asyncFetchDataFromLink(songDetails.tracks);
       })
       .then(function (response) {
+        console.log(response);
         // For every track in an album 
         // create an object and push on to songList array
         response.tracks.forEach(track => {
@@ -142,7 +143,7 @@ function Song(props) {
 
   let songDetailsDOMElement = [];
   if (songDetailsData.isSongDetailsDataRetrieved && songDetailsData.actualSongDetailsData.length) {
-    console.log('added song details');
+    // console.log('added song details');
     songDetailsData.actualSongDetailsData.forEach(song => {
       songDetailsDOMElement.push(
         <div className={`${styles["Song-details"]} ${styles["row"]}`}>
@@ -186,7 +187,7 @@ function Song(props) {
 
   let songListDOMElement = [];
   if (songListData.isSongListDataRetrieved && songListData.actualSongListData.length) { 
-    //console.log('updated song list');
+    // console.log('updated song list');
     songListData.actualSongListData.forEach(track => {
       songListDOMElement.push(
         <div className={`${styles["song"]} ${styles["row"]}`}>
@@ -204,7 +205,6 @@ function Song(props) {
 
   return(
     <div className={styles["Song"]}>
-
       {songDetailsData.isSongDetailsDataRetrieved ?
         songDetailsDOMElement :
         <div className={`${styles["Song-details"]} ${styles["row"]}`}>
