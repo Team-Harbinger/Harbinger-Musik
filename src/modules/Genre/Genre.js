@@ -18,22 +18,10 @@ function Genre(props) {
 
   const [genreDetailsData, setGenreDetailsData] = useState([]);
   const [songListData, setSongListData] = useState([]);
-  const [audioPlayer, setAudioPlayer] = useState({audioObject: new Audio(), currentAudioSrc: null});
+  const [currentAudioSrc, setCurrentAudioSrc] = useState(null);
 
-  function playAudio(newAudioSrc) {
-    // if try to play audio that is already playing, just stop it
-    if (newAudioSrc === audioPlayer.currentAudioSrc) {
-      audioPlayer.audioObject.pause();
-      audioPlayer.audioObject.src = null;
-      audioPlayer.currentAudioSrc = null;
-    }
-    else {
-      audioPlayer.currentAudioSrc = newAudioSrc;
-      audioPlayer.audioObject.pause();
-      audioPlayer.audioObject.src = newAudioSrc;
-      audioPlayer.audioObject.load();
-      audioPlayer.audioObject.play();
-    }
+  function updateCurrentAudioSrc(newAudioSrc) {
+    setCurrentAudioSrc(newAudioSrc);
   }
 
   // To get Genre Description:
@@ -141,7 +129,11 @@ function Genre(props) {
             <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image column" />
             <div className="overlay">
               <div className="icon">
-                <PlayButton previewProp={track.trackPreviewSrc} onClickHandler={playAudio} />
+                <PlayButton 
+                  previewProp={track.trackPreviewSrc} 
+                  onClickHandler={updateCurrentAudioSrc} 
+                  audioPlayerStatus={track.trackPreviewSrc === currentAudioSrc ? 1 : 0} 
+                />
               </div>
             </div>
           </div>
