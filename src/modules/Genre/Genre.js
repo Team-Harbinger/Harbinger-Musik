@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import './Genre.css';
+import styles from './Genre.module.css';
 import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import genreImages from '../../assets/genre_images/genreImages';
 // import { Link } from 'react-router-dom';
@@ -98,7 +98,7 @@ function Genre(props) {
   let genreNameDOMElement = [];
   genreDetailsData.forEach(genre => {
     genreNameDOMElement.push(
-      <div className="genre-name row">
+      <div className={`${styles["genre-name"]} ${styles["row"]}`}>
         <p>{genre.genreName}</p>
       </div>
     )
@@ -109,9 +109,9 @@ function Genre(props) {
   genreDetailsData.forEach(genre => {
     console.log('updated genre details');
     genreDetailsDOMElement.push(
-      <div className="genre-details row">
-        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className="image-col" />
-        <div className="genre-description desc-col">
+      <div className={`${styles["genre-details"]} ${styles["row"]}`}>
+        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["image-col"]}`} />
+        <div className={`${styles["genre-description"]} ${styles["desc-col"]}`}>
           <p>{stripHtml(genre.genreDescription)}</p>
         </div>
       </div>
@@ -123,12 +123,12 @@ function Genre(props) {
   songListData.forEach(track => {
     console.log('updated song list');
     songListDOMElement.push(
-      <div className="song row">
-        <div className="song-image column">
-          <div className="container">
-            <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className="image column" />
-            <div className="overlay">
-              <div className="icon">
+      <div className={`${styles["song"]} ${styles["row"]}`}>
+        <div className={`${styles["song-image"]} ${styles["column"]}`}>
+          <div className={`${styles["container"]}`}>
+            <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className={`${styles["image"]} ${styles["column"]}`} />
+            <div className={`${styles["overlay"]}`}>
+              <div className={`${styles["icon"]}`}>
                 <AudioPlayer 
                   previewProp={track.trackPreviewSrc} 
                   onClickHandler={updateCurrentAudioSrc} 
@@ -138,18 +138,18 @@ function Genre(props) {
             </div>
           </div>
         </div>
-        <div className="song-name column">
-          <div className="track-index" >{track.trackIndex + '.'}</div>
-          <div className=".track-name-and-artist">
+        <div className={`${styles["song-name"]} ${styles["column"]}`}>
+          <div className={`${styles["track-index"]}`}>{track.trackIndex + '.'}</div>
+          <div className={`${styles["track-name-and-artist"]}`}>
             {/* <span className="link-to-track">
               <Link to={"/song/" + track.trackShortcut}>
                 {track.songName}
               </Link>
             </span> */}
-            <a href={APP_BASENAME + "/song/" + track.trackShortcut} className="link-to-track" >
+            <a href={APP_BASENAME + "/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`} >
               {track.songName}
             </a>
-            <div className="artist-name">
+            <div className={`${styles["artist-name"]}`}>
               {track.artistName}
             </div>
           </div>
@@ -160,21 +160,21 @@ function Genre(props) {
 
   return (
     // Change to ids
-    <div className="Song">
-      <h2 className="genre-header">{genreNameDOMElement}</h2>
-      <div className="holder flex-row-item">
-        <div className="song flex-row-item">
+    <div className={`${styles["Song"]}`}>
+      <h2 className={`${styles["genre-header"]}`}>{genreNameDOMElement}</h2>
+      <div className={`${styles["holder"]} ${styles["flex-row-item"]}`}>
+        <div className={`${styles["song"]} ${styles["flex-row-item"]}`}>
           {genreDetailsDOMElement}
         </div>
       </div>
-      <div className="Song-album">
-        <h2 className="album-header">Top Songs</h2>
-        <div className="song-list-container flex-row-container">
-          <div className="flex-row-item"></div>
-          <div className="song-list flex-row-item">
+      <div className={`${styles["Song-album"]}`}>
+        <h2 className={`${styles["album-header"]}`}>Top Songs</h2>
+        <div className={`${styles["song-list-container"]} ${styles["flex-row-container"]}`}>
+          <div className={`${styles["flex-row-item"]}`}></div>
+          <div className={`${styles["song-list"]} ${styles["flex-row-item"]}`}>
             {songListDOMElement}
           </div>
-          <div className="flex-row-item"></div>
+          <div className={`${styles["flex-row-item"]}`}></div>
         </div>
       </div>
     </div>
