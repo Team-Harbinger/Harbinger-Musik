@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 import Navbar from './modules/Navbar/Navbar.js';
 import Home from './modules/Home/Home.js';
 import About from './modules/About/About.js';
