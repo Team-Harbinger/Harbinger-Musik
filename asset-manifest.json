@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Harbinger-Musik/static/css/main.f9f276f7.chunk.css",
-    "main.js": "/Harbinger-Musik/static/js/main.5bdb7aa6.chunk.js",
-    "main.js.map": "/Harbinger-Musik/static/js/main.5bdb7aa6.chunk.js.map",
+    "main.css": "/Harbinger-Musik/static/css/main.246cc583.chunk.css",
+    "main.js": "/Harbinger-Musik/static/js/main.7993baaa.chunk.js",
+    "main.js.map": "/Harbinger-Musik/static/js/main.7993baaa.chunk.js.map",
     "runtime-main.js": "/Harbinger-Musik/static/js/runtime-main.37c8f195.js",
     "runtime-main.js.map": "/Harbinger-Musik/static/js/runtime-main.37c8f195.js.map",
     "static/js/2.bd15700c.chunk.js": "/Harbinger-Musik/static/js/2.bd15700c.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.abfedc82.chunk.js": "/Harbinger-Musik/static/js/3.abfedc82.chunk.js",
     "static/js/3.abfedc82.chunk.js.map": "/Harbinger-Musik/static/js/3.abfedc82.chunk.js.map",
     "index.html": "/Harbinger-Musik/index.html",
-    "static/css/main.f9f276f7.chunk.css.map": "/Harbinger-Musik/static/css/main.f9f276f7.chunk.css.map",
+    "static/css/main.246cc583.chunk.css.map": "/Harbinger-Musik/static/css/main.246cc583.chunk.css.map",
     "static/js/2.bd15700c.chunk.js.LICENSE.txt": "/Harbinger-Musik/static/js/2.bd15700c.chunk.js.LICENSE.txt",
     "static/media/applogo.554586c0.svg": "/Harbinger-Musik/static/media/applogo.554586c0.svg",
     "static/media/napster-alternative-image.c5b419a0.jpg": "/Harbinger-Musik/static/media/napster-alternative-image.c5b419a0.jpg",
@@ -42,7 +42,7 @@
   "entrypoints": [
     "static/js/runtime-main.37c8f195.js",
     "static/js/2.bd15700c.chunk.js",
-    "static/css/main.f9f276f7.chunk.css",
-    "static/js/main.5bdb7aa6.chunk.js"
+    "static/css/main.246cc583.chunk.css",
+    "static/js/main.7993baaa.chunk.js"
   ]
 }
