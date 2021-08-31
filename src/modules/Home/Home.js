@@ -5,15 +5,15 @@ import genreImages from "../../assets/genre_images/genreImages";
 import asyncFetchGenreData from "./asyncFetchGenreData.js";
 // import { Link } from "react-router-dom";
 
-function Home() {
-  const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
-  const APP_BASENAME = "/Harbinger-Musik";
+function Home(props) {
   const [genreData, setGenreData] = useState([]);
+  console.log(props.NAPSTER_API_KEY);
+  console.log(props.APP_BASENAME);
   if (!genreData.length) {
     // console.log(genreData);
     let genres = [];
     // fetch genre images.
-    asyncFetchGenreData(API_KEY).then(fetchedGenreData => {
+    asyncFetchGenreData(props.NAPSTER_API_KEY).then(fetchedGenreData => {
       // console.log(fetchedGenreData);
       fetchedGenreData.genres.forEach(genre => {
         genres.push({
@@ -49,7 +49,7 @@ function Home() {
           <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["genre-image"]}`} />
           <span className={`${styles["genre-image-description"]}`}>{genre.genreName}</span>
         </Link> */}
-        <a href={APP_BASENAME + "/genre/" + genre.genreShortcutName} >
+        <a href={props.APP_BASENAME + "/genre/" + genre.genreShortcutName} >
           <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["genre-image"]}`} />
           <span className={`${styles["genre-image-description"]}`}>{genre.genreName}</span>
         </a>

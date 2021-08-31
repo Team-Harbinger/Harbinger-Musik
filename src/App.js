@@ -10,15 +10,19 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import { HashRouter } from 'react-router-dom';
 
 function App() {
+  // all links to other components of the app must be prefixed with this
+  const APP_BASENAME = "/Harbinger-Musik"; 
+  // api key
+  const NAPSTER_API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   return (
     <BrowserRouter basename="/Harbinger-Musik">
-      <Navbar />
+      <Navbar APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY}/>
       <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/about' component={About} />
-        <Route exact path='/search' component={SearchPage} />
-        <Route path='/genre' component={Genre} />
-        <Route path='/song' component={Song} />
+        <Route path='/' exact render={(props) => <Home {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
+        <Route path='/about' render={(props) => <About {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
+        <Route exact path='/search' render={(props) => <SearchPage {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
+        <Route path='/genre' render={(props) => <Genre {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
+        <Route path='/song' render={(props) => <Song {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
       </Switch>
     </BrowserRouter>
   );
