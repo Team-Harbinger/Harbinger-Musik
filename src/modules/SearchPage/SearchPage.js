@@ -5,8 +5,6 @@ import asyncFetchTrackData from "./asyncFetchTrackData.js";
 // import { Link } from "react-router-dom";
 
 function SearchPage(props) {
-  const APP_BASENAME = "/Harbinger-Musik";
-  const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [trackData, setTrackData] = useState({actualTrackData: [], isDataRetrieved: false});
   
   /*
@@ -18,7 +16,7 @@ function SearchPage(props) {
   if (!trackData.isDataRetrieved) {
     const queryParameters = props.location.search.split("?")[1];
     let finalTrackData = [];
-    asyncFetchTrackData(queryParameters, API_KEY).then(fetchedTrackData => {
+    asyncFetchTrackData(queryParameters, props.NAPSTER_API_KEY).then(fetchedTrackData => {
       // still need to extract specific track data from result of API call
       console.log("track data: ", fetchedTrackData.search.data.tracks);
       // order in which the track appears
@@ -60,7 +58,7 @@ function SearchPage(props) {
                   </Link>
                 </span> */}
                 
-                <a href={APP_BASENAME + "/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
+                <a href={props.APP_BASENAME + "/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`}>
                   <span className={`${styles["track-name"]}`}>
                     {track.trackName}
                   </span>

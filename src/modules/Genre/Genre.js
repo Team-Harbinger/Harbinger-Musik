@@ -13,9 +13,6 @@ function stripHtml(html) {
 
 function Genre(props) {
 
-  const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
-  const APP_BASENAME = "/Harbinger-Musik";
-
   const [genreDetailsData, setGenreDetailsData] = useState([]);
   const [songListData, setSongListData] = useState([]);
   const [currentAudioSrc, setCurrentAudioSrc] = useState(null);
@@ -48,7 +45,7 @@ function Genre(props) {
     };
     let songList = [];
 
-    fetch('https://api.napster.com/v2.2/genres/' + genreShortcutName + '?apikey=' + API_KEY)
+    fetch('https://api.napster.com/v2.2/genres/' + genreShortcutName + '?apikey=' + props.NAPSTER_API_KEY)
       .then(function (response) {
         console.log("Tracks API fetched success");
         return response.json();
@@ -63,7 +60,7 @@ function Genre(props) {
       .then(function (response) {
         genreDetails.genreImageSrc = genreImages[genreDetails.genreName];
         setGenreDetailsData([genreDetails]);
-        return fetch("https://api.napster.com/v2.2/genres/" + genreID + "/tracks/top?apikey=" + API_KEY);
+        return fetch("https://api.napster.com/v2.2/genres/" + genreID + "/tracks/top?apikey=" + props.NAPSTER_API_KEY);
       })
       .then(function (response) {
         // Albums API successful response
@@ -146,7 +143,7 @@ function Genre(props) {
                 {track.songName}
               </Link>
             </span> */}
-            <a href={APP_BASENAME + "/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`} >
+            <a href={props.APP_BASENAME + "/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`} >
               {track.songName}
             </a>
             <div className={`${styles["artist-name"]}`}>

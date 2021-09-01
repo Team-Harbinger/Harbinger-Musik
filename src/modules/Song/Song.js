@@ -6,8 +6,6 @@ import LoadingImage from '../../assets/song-details-album-image-placeholder.gif'
 import * as apiCall from './asyncFetchSongPageData.js';
 
 function Song(props) {
-
-  const API_KEY = process.env.REACT_APP_NAPSTER_API_KEY;
   const [songDetailsData, setSongDetailsData] = useState({ actualSongDetailsData: [], isSongDetailsDataRetrieved: false });
   const [songListData, setSongListData] = useState({ actualSongListData: [], isSongListDataRetrieved: false });
   // const [audioPlayer, setAudioPlayer] = useState({audioObject: new Audio(), currentAudioSrc: null});
@@ -74,7 +72,7 @@ function Song(props) {
     let albumHref;
 
     // fetch track using track shortcut (ID works too but we want the shortcut in the URL).
-    await apiCall.asyncFetchTrackData(trackShortcut, API_KEY).then(response => {
+    await apiCall.asyncFetchTrackData(trackShortcut, props.NAPSTER_API_KEY).then(response => {
       //console.log(response);
 
       songDetails.songName = response.tracks[0].name;
@@ -83,19 +81,19 @@ function Song(props) {
       //console.log(songDetails);
 
       // Fetch from albums API
-      return apiCall.asyncFetchAlbumsData(response.tracks[0].albumId, API_KEY);
+      return apiCall.asyncFetchAlbumsData(response.tracks[0].albumId, props.NAPSTER_API_KEY);
     })
     .then(function (response) {
       //console.log(response);
 
       songDetails.released = (new Date(response.albums[0].released)).toDateString();
       songDetails.label = response.albums[0].label;
-      songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + API_KEY;
+      songDetails.tracks = response.albums[0].links.tracks.href + '?apikey=' + props.NAPSTER_API_KEY;
 
       //console.log(songDetails);
 
       // Fetch data from (albums) images API
-      albumHref = response.albums[0].links.images.href + "?apikey=" + API_KEY;
+      albumHref = response.albums[0].links.images.href + "?apikey=" + props.NAPSTER_API_KEY;
     })
 
     return apiCall.asyncFetchDataFromLink(albumHref);
