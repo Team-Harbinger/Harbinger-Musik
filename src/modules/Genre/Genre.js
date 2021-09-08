@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './Genre.module.css';
 import AudioPlayer from '../AudioPlayer/AudioPlayer.js';
 import genreImages from '../../assets/genre_images/genreImages';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function stripHtml(html) {
   let tmp = document.createElement("DIV");
@@ -138,14 +138,9 @@ function Genre(props) {
         <div className={`${styles["song-name"]} ${styles["column"]}`}>
           <div className={`${styles["track-index"]}`}>{track.trackIndex + '.'}</div>
           <div className={`${styles["track-name-and-artist"]}`}>
-            {/* <span className="link-to-track">
-              <Link to={"/song/" + track.trackShortcut}>
-                {track.songName}
-              </Link>
-            </span> */}
-            <a href={props.APP_BASENAME + "/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`} >
+            <Link to={"/song/" + track.trackShortcut} className={`${styles["link-to-track"]}`} >
               {track.songName}
-            </a>
+            </Link>
             <div className={`${styles["artist-name"]}`}>
               {track.artistName}
             </div>
