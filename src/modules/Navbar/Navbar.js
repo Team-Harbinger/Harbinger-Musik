@@ -3,7 +3,7 @@ import { MenuItems } from "./MenuItems";
 import styles from "./Navbar.module.css";
 import AppLogo from "../../assets/applogo.svg";
 import Searchbar from "../Searchbar/Searchbar.js";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Navbar(props) {
   return (
@@ -13,14 +13,9 @@ function Navbar(props) {
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                {/* <span className={item.cName}>
-                  <Link to={item.url} >
-                    {item.title}
-                  </Link>
-                </span> */}
-                <a className={styles[item.cName]} href={props.APP_BASENAME + item.url}>
+                <Link to={item.url} className={styles[item.cName]}>
                   {item.title}
-                </a>
+                </Link>
               </li>
             )
           })}

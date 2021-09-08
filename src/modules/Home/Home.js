@@ -3,7 +3,7 @@ import {useState} from "react";
 import styles from "./Home.module.css";
 import genreImages from "../../assets/genre_images/genreImages";
 import asyncFetchGenreData from "./asyncFetchGenreData.js";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home(props) {
   const [genreData, setGenreData] = useState([]);
@@ -45,14 +45,10 @@ function Home(props) {
   genreData.forEach(genre => {
     genreDOMElements.push(
       <div className={`${styles["genre"]}`} key={genre.genreName}>
-        {/* <Link to={"/genre/" + genre.genreShortcutName} >
+        <Link to={"/genre/" + genre.genreShortcutName} >
           <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["genre-image"]}`} />
           <span className={`${styles["genre-image-description"]}`}>{genre.genreName}</span>
-        </Link> */}
-        <a href={props.APP_BASENAME + "/genre/" + genre.genreShortcutName} >
-          <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["genre-image"]}`} />
-          <span className={`${styles["genre-image-description"]}`}>{genre.genreName}</span>
-        </a>
+        </Link>
       </div>
     )
   });

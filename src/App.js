@@ -20,7 +20,7 @@ function App() {
       <Switch>
         <Route path='/' exact render={(props) => <Home {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
         <Route path='/about' render={(props) => <About {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
-        <Route exact path='/search' render={(props) => <SearchPage {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
+        <Route path='/search' render={(props) => <SearchPage {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
         <Route path='/genre' render={(props) => <Genre {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
         <Route path='/song' render={(props) => <Song {...props} APP_BASENAME={APP_BASENAME} NAPSTER_API_KEY={NAPSTER_API_KEY} />} />
       </Switch>
