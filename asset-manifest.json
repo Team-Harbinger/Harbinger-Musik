@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Harbinger-Musik/static/css/main.246cc583.chunk.css",
-    "main.js": "/Harbinger-Musik/static/js/main.c196719d.chunk.js",
-    "main.js.map": "/Harbinger-Musik/static/js/main.c196719d.chunk.js.map",
+    "main.css": "/Harbinger-Musik/static/css/main.bb69e710.chunk.css",
+    "main.js": "/Harbinger-Musik/static/js/main.c12bf3a1.chunk.js",
+    "main.js.map": "/Harbinger-Musik/static/js/main.c12bf3a1.chunk.js.map",
     "runtime-main.js": "/Harbinger-Musik/static/js/runtime-main.fa098b6b.js",
     "runtime-main.js.map": "/Harbinger-Musik/static/js/runtime-main.fa098b6b.js.map",
-    "static/js/2.0322fddf.chunk.js": "/Harbinger-Musik/static/js/2.0322fddf.chunk.js",
-    "static/js/2.0322fddf.chunk.js.map": "/Harbinger-Musik/static/js/2.0322fddf.chunk.js.map",
+    "static/js/2.2ca17176.chunk.js": "/Harbinger-Musik/static/js/2.2ca17176.chunk.js",
+    "static/js/2.2ca17176.chunk.js.map": "/Harbinger-Musik/static/js/2.2ca17176.chunk.js.map",
     "static/js/3.5bb3f7a4.chunk.js": "/Harbinger-Musik/static/js/3.5bb3f7a4.chunk.js",
     "static/js/3.5bb3f7a4.chunk.js.map": "/Harbinger-Musik/static/js/3.5bb3f7a4.chunk.js.map",
     "index.html": "/Harbinger-Musik/index.html",
-    "static/css/main.246cc583.chunk.css.map": "/Harbinger-Musik/static/css/main.246cc583.chunk.css.map",
-    "static/js/2.0322fddf.chunk.js.LICENSE.txt": "/Harbinger-Musik/static/js/2.0322fddf.chunk.js.LICENSE.txt",
+    "static/css/main.bb69e710.chunk.css.map": "/Harbinger-Musik/static/css/main.bb69e710.chunk.css.map",
+    "static/js/2.2ca17176.chunk.js.LICENSE.txt": "/Harbinger-Musik/static/js/2.2ca17176.chunk.js.LICENSE.txt",
     "static/media/applogo.554586c0.svg": "/Harbinger-Musik/static/media/applogo.554586c0.svg",
     "static/media/napster-alternative-image.c5b419a0.jpg": "/Harbinger-Musik/static/media/napster-alternative-image.c5b419a0.jpg",
     "static/media/napster-blues-image.a2e5e18a.jpg": "/Harbinger-Musik/static/media/napster-blues-image.a2e5e18a.jpg",
@@ -41,8 +41,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fa098b6b.js",
-    "static/js/2.0322fddf.chunk.js",
-    "static/css/main.246cc583.chunk.css",
-    "static/js/main.c196719d.chunk.js"
+    "static/js/2.2ca17176.chunk.js",
+    "static/css/main.bb69e710.chunk.css",
+    "static/js/main.c12bf3a1.chunk.js"
   ]
 }
