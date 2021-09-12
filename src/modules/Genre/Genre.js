@@ -96,7 +96,7 @@ function Genre(props) {
   genreDetailsData.forEach(genre => {
     genreNameDOMElement.push(
       <div className={`${styles["genre-name"]} ${styles["row"]}`}>
-        <p>{genre.genreName}</p>
+        <h2>{genre.genreName}</h2>
       </div>
     )
   }
@@ -153,7 +153,7 @@ function Genre(props) {
   return (
     // Change to ids
     <div className={`${styles["Song"]}`}>
-      <h2 className={`${styles["genre-header"]}`}>{genreNameDOMElement}</h2>
+      {genreNameDOMElement}
       <div className={`${styles["holder"]} ${styles["flex-row-item"]}`}>
         <div className={`${styles["song"]} ${styles["flex-row-item"]}`}>
           {genreDetailsDOMElement}
