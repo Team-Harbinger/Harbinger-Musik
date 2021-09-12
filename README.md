@@ -1,5 +1,9 @@
 # Harbinger Musik
 
+## Deployment Link
+
+https://team-harbinger.github.io/Harbinger-Musik/
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
@@ -22,9 +26,9 @@ Music streaming platform that uses Napster's API. Find and play song previews fr
 
 **Required Must-have Stories**
 
-- [ ] User browses the latest top songs, albums, artists, and genres.
-- [ ] Plays song previews
-- [ ] User queries songs, albums, or artists with the search bar.
+- [X] User browses the latest top songs, albums, artists, and genres.
+- [X] Plays song previews
+- [X] User queries songs, albums, or artists with the search bar.
 - [ ] User picks what their favorite artist/genre/etc.
 
 **Optional Nice-to-have Stories**
@@ -81,10 +85,4 @@ Optional:
 
 
 ## Wireframes
-<img src="wireframe1.jpg" width=800><br>
-
-### [BONUS] Digital Wireframes & Mockups
-<img src="wireframe2.jpg" height=200>
-
-### [BONUS] Interactive Prototype
-<img src="wireframe3.gif" width=200>
+<img src="wireframe.jpg" width=800><br>
