@@ -7,7 +7,7 @@ https://team-harbinger.github.io/Harbinger-Musik/
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
+1. [Wireframe](#Wireframe)
 
 ## Overview
 ### Description
@@ -84,5 +84,5 @@ Optional:
 * Settings -> Toggle settings
 
 
-## Wireframes
+## Wireframe
 <img src="wireframe.jpg" width=800><br>
