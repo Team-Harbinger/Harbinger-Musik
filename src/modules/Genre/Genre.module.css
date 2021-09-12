@@ -36,7 +36,8 @@
 .genre-name {
   text-align: center;
   align-items: center;
-  font-size: 0.5em;
+  font-weight: normal;
+  font-size: 2em;
 }
 
 .artist-name {
@@ -62,8 +63,6 @@
 }
 
 .genre-header {
-  font-weight: 600;
-  font-size: 800%;
   margin-top: 0.05%;
   margin-bottom: 0.1%;
   
