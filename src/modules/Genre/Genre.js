@@ -95,9 +95,7 @@ function Genre(props) {
   let genreNameDOMElement = [];
   genreDetailsData.forEach(genre => {
     genreNameDOMElement.push(
-      <div className={`${styles["genre-name"]} ${styles["row"]}`}>
-        <h2>{genre.genreName}</h2>
-      </div>
+      <h2 className={`${styles["genre-header"]}`}>{genre.genreName}</h2>
     )
   }
   );
@@ -106,9 +104,9 @@ function Genre(props) {
   genreDetailsData.forEach(genre => {
     console.log('updated genre details');
     genreDetailsDOMElement.push(
-      <div className={`${styles["genre-details"]} ${styles["row"]}`}>
-        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["image-col"]}`} />
-        <div className={`${styles["genre-description"]} ${styles["desc-col"]}`}>
+      <div className={`${styles["genre-details-items"]} ${styles["row"]}`}>
+        <img src={genre.genreImageSrc} alt={"Image Representing " + genre.genreName} className={`${styles["image-col"]} ${styles["description-col"]}`} />
+        <div className={`${styles["genre-description"]} ${styles["description-col"]}`}>
           <p>{stripHtml(genre.genreDescription)}</p>
         </div>
       </div>
@@ -151,24 +149,25 @@ function Genre(props) {
   });
 
   return (
-    // Change to ids
-    <div className={`${styles["Song"]}`}>
-      {genreNameDOMElement}
-      <div className={`${styles["holder"]} ${styles["flex-row-item"]}`}>
-        <div className={`${styles["song"]} ${styles["flex-row-item"]}`}>
-          {genreDetailsDOMElement}
-        </div>
+    <div className={`${styles["Genre"]}`}>
+
+      <div className={`${styles["genre-name"]} ${styles["row"]}`}>
+        {genreNameDOMElement}
       </div>
+
+      <div className={`${styles["genre-details-container"]} ${styles["flex-row-item"]}`}>
+        {genreDetailsDOMElement}
+      </div>
+
       <div className={`${styles["Song-album"]}`}>
         <h2 className={`${styles["album-header"]}`}>Top Songs</h2>
-        <div className={`${styles["song-list-container"]} ${styles["flex-row-container"]}`}>
-          <div className={`${styles["flex-row-item"]}`}></div>
+        <div className={`${styles["song-list-container"]}`}>
           <div className={`${styles["song-list"]} ${styles["flex-row-item"]}`}>
             {songListDOMElement}
           </div>
-          <div className={`${styles["flex-row-item"]}`}></div>
         </div>
       </div>
+
     </div>
   );
 }
