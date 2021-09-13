@@ -120,7 +120,7 @@ function Genre(props) {
     songListDOMElement.push(
       <div className={`${styles["song"]} ${styles["row"]}`}>
         <div className={`${styles["song-image"]} ${styles["column"]}`}>
-          <div className={`${styles["container"]}`}>
+          <div className={`${styles["song-image-container"]}`}>
             <img src={track.songImageSrc} alt={"Image Representing " + track.songName} className={`${styles["image"]} ${styles["column"]}`} />
             <div className={`${styles["overlay"]}`}>
               <div className={`${styles["icon"]}`}>
@@ -160,11 +160,9 @@ function Genre(props) {
       </div>
 
       <div className={`${styles["Song-album"]}`}>
-        <h2 className={`${styles["album-header"]}`}>Top Songs</h2>
+        <h2>Top Songs</h2>
         <div className={`${styles["song-list-container"]}`}>
-          <div className={`${styles["song-list"]} ${styles["flex-row-item"]}`}>
-            {songListDOMElement}
-          </div>
+          {songListDOMElement}
         </div>
       </div>
 

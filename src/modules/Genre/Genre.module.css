@@ -19,12 +19,6 @@
   justify-content: center;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-}
-
 /* Genre Name */
 
 .genre-name {
@@ -73,29 +67,23 @@
   text-align: center;
 }
 
-.album-header {
-
-}
-
 .song-list-container {
-  
-}
-
-.song-list {
-
+  background-color: rgb(182, 182, 182);
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
 }
 
 .song {
-  gap: 15%;
-  margin-top: 5%;
+  margin: 5%;
 }
 
-.song-image {
-
-}
-
-.image {
-  background-color: #555;
+.song-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
 
 .overlay {
@@ -111,8 +99,12 @@
   background-color: none;
 }
 
-.container:hover .overlay {
+.song-image-container:hover .overlay {
   opacity: 1;
+}
+
+.image {
+  background-color: #555;
 }
 
 .icon {
@@ -129,7 +121,7 @@
 
 .song-name {
   text-align: left;
-  font-size:1.9em;
+  font-size: 1.75em;
 }
 
 .track-index {
@@ -154,7 +146,7 @@
 
 .artist-name {
   align-items: center;
-  font-size: 0.7em;
+  font-size: 0.75em;
 }
 
 p { 
