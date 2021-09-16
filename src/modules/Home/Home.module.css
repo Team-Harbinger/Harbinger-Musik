@@ -13,6 +13,7 @@
 }
 
 #discover-genres h2 {
+  margin: 0;
   font-weight: normal;
   font-size: 3em;
 }
@@ -21,6 +22,7 @@
   background-color: rgb(182, 182, 182);
   width: 50%;
   justify-content: space-evenly;
+  margin: 2.5%;
 }
 
 .genre {
