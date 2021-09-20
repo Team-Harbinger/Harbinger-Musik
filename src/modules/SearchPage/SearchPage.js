@@ -74,26 +74,28 @@ function SearchPage(props) {
   */
 
   return (
-    <div id={styles["search-page"]} className={styles["flex-column-container"]}>
+    <div id={styles["search-page"]}>
+      <div className={styles["flex-column-container"]}>
         {trackData.isDataRetrieved 
-          ? 
-            <div id={styles["top-matching-songs"]} className={styles["flex-column-container"]}>
-              <h2>Top Matching Songs</h2>
-              {trackData.actualTrackData.length
-                ? 
-                  <div id={styles["track-list"]} className={styles["flex-column-container"]}>
-                    {trackDOMElements}
-                  </div>
-                :
-                  <h3>No songs found!</h3> 
-              }
-            </div>
-          :
-            <div id={styles["top-matching-songs"]} className={styles["flex-column-container"]}>
-              <h2>Top Matching Songs</h2>
-              <span>Loading...</span>
-            </div>
+            ? 
+              <div id={styles["top-matching-songs"]} className={styles["flex-column-container"]}>
+                <h2>Top Matching Songs</h2>
+                {trackData.actualTrackData.length
+                  ? 
+                    <div id={styles["track-list"]} className={styles["flex-column-container"]}>
+                      {trackDOMElements}
+                    </div>
+                  :
+                    <h3>No songs found!</h3> 
+                }
+              </div>
+            :
+              <div id={styles["top-matching-songs"]} className={styles["flex-column-container"]}>
+                <h2>Top Matching Songs</h2>
+                <span>Loading...</span>
+              </div>
         }
+      </div>
     </div>
   );
 }
