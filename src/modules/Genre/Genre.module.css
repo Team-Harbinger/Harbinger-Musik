@@ -27,7 +27,7 @@
 }
 
 .genre-header { /* Change later */
-  margin: 0;
+  /* margin: 0; */
   font-weight: normal;
   font-size: 3em;
 }
@@ -39,7 +39,7 @@
   justify-content: space-evenly;
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 2%;
+  /* margin-top: 2%; */
   margin-bottom: 2%;
 }
 
@@ -52,7 +52,7 @@
   margin-right: 5%;
 }
 
-.image-col{
+.image-col {
   width: 18.75em; /* 300 px */
 }
 

@@ -10,19 +10,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* border: 2px red solid; */
+}
+
+#discover-genres {
+  padding-bottom: 5em;
 }
 
 #discover-genres h2 {
-  margin: 0;
+  /* margin: 0; */
   font-weight: normal;
   font-size: 3em;
+  
 }
 
 #genre-list {
   background-color: rgb(182, 182, 182);
   width: 50%;
   justify-content: space-evenly;
-  margin: 2.5%;
+  /* border: 2px red solid; */
+  /* margin: 2.5%; */
+  padding: 1em;
 }
 
 .genre {

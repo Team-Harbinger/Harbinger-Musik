@@ -55,12 +55,10 @@ function Home(props) {
 
   return (
     <div id={`home`}>
-      <div className={`${styles["flex-column-container"]}`}>
-        <div id={`${styles["discover-genres"]}`} className={`${styles["flex-column-container"]}`}>
-          <h2>Discover Music</h2>
-          <div id={`${styles["genre-list"]}`} className={`${styles["flex-row-container"]}`}>
-            {genreDOMElements}
-          </div>
+      <div id={`${styles["discover-genres"]}`} className={`${styles["flex-column-container"]}`}>
+        <h2>Discover Music</h2>
+        <div id={`${styles["genre-list"]}`} className={`${styles["flex-row-container"]}`}>
+          {genreDOMElements}
         </div>
       </div>
     </div>
