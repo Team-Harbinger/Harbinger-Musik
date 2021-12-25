@@ -3,11 +3,11 @@ export const MenuItems = [
   {
     title: 'Home',
     url: '/',
-    cName: 'nav-links'
+    cName: 'nav-link'
   },
   {
     title: 'About',
     url: '/about',
-    cName: 'nav-links'
+    cName: 'nav-link'
   }
 ]

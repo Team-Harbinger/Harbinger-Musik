@@ -1,10 +1,59 @@
 import React from "react";
-import { useState } from "react"; 
+import { useState, useEffect, useRef } from "react"; 
 import styles from "./Searchbar.module.css";
 import SearchIcon from "../../assets/searchicon.svg";
-import { Link } from "react-router-dom";
 
 function Searchbar(props) {
+  const searchbarRef = useRef();
+  useEffect(() => {
+    function switchToMobileStyling() {
+      searchbarRef.current.classList.remove(styles["search-container-nonmobile"]);
+      searchbarRef.current.classList.add(styles["search-container-mobile"]);
+    }
+
+    function switchToPCStyling() {
+      searchbarRef.current.classList.remove(styles["search-container-mobile"]);
+      searchbarRef.current.classList.add(styles["search-container-nonmobile"]);
+    }
+
+    function checkScreenSizeOnPageLoad(mediaQueryAboveVal) {
+      console.log("check initlal page load");
+      if (mediaQueryAboveVal.matches) {
+        console.log('In searchbar.js: Screen size > 700');
+        switchToPCStyling();
+      }
+      else {
+        console.log('In searchbar.js: Screen size <= 700');
+        switchToMobileStyling();
+      }
+    } 
+
+    function handleTabletChange(e) {
+      if (e.matches) {
+        console.log('In searchbar.js: Screen size < 700');
+        switchToMobileStyling();
+      }
+    }
+
+    function handlePCChange(e) {
+      if (e.matches) {
+        console.log('In searchbar.js: Screen size > 700');
+        switchToPCStyling();
+      }
+    }
+
+    /* Media Queries implemented with JS */
+    const mediaQueryBelow700 = window.matchMedia('(max-width: 700px)');
+
+    mediaQueryBelow700.addEventListener('change', handleTabletChange);
+
+    const mediaQueryAbove700 = window.matchMedia('(min-width: 701px)');
+
+    mediaQueryAbove700.addEventListener('change', handlePCChange);
+
+    // need to check if you need to resize on page load
+    checkScreenSizeOnPageLoad(mediaQueryAbove700);
+  }, []);
   /*
   * Holds the user's input. Updates every time the input changes 
   * and the input element's value is set to this (controlled component)
@@ -36,7 +85,7 @@ function Searchbar(props) {
   }
 
   return (
-    <div id={`${styles["search-container"]}`}>
+    <div className={`${styles["search-container"]}`} ref={searchbarRef}>
       <input type="text" placeholder="Search for a song" name="search" onChange={handleInputChange} onKeyPress={validateInput} value={searchString} />
         {
           /* 

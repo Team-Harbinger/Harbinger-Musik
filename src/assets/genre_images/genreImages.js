@@ -9,6 +9,7 @@ import ComedyImage from './napster-comedy-image.jpg';
 import CountryImage from './napster-country-image.jpg';
 import ElectronicImage from './napster-electronic-image.jpg';
 import FolkImage from './napster-folk-image.jpg';
+import HolidayImage from './napster-holiday-music-image.png';
 import JazzImage from './napster-jazz-image.jpg';
 import LatinImage from './napster-latin-image.jpg';
 import MetalImage from './napster-metal-image.jpg';
@@ -34,6 +35,7 @@ const genreImages = {
     "Country": CountryImage,
     "Electronic": ElectronicImage,
     "Folk": FolkImage,
+    "Holiday Music": HolidayImage,
     "Jazz": JazzImage,
     "Latin": LatinImage,
     "Metal": MetalImage,
