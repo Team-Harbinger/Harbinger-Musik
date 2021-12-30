@@ -2,7 +2,8 @@
 
 ## Deployment Link
 
-https://team-harbinger.github.io/Harbinger-Musik/
+<a href="https://team-harbinger.github.io/Harbinger-Musik/" target="_blank">https://team-harbinger.github.io/Harbinger-Musik/</a>
+
 
 ## Table of Contents
 1. [Overview](#Overview)

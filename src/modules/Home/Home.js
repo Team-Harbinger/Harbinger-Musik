@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 
 function Home(props) {
   const [genreData, setGenreData] = useState([]);
-  console.log(props.NAPSTER_API_KEY);
-  console.log(props.APP_BASENAME);
   if (!genreData.length) {
     // console.log(genreData);
     let genres = [];
@@ -27,7 +25,7 @@ function Home(props) {
           genreImageSrc: genreImages[genre.name]
         })
       })
-      console.log(genres);
+      // console.log(genres);
       /*
       * Initially, the component will render without the genre images, because the API call
       * is async. That means we need to re-render the component once the call finishes. I use

@@ -1,8 +1,18 @@
-#search-container {
+.search-container {
+  position: relative;
+  /* display: none; */
+}
+
+.search-container-nonmobile {
   position: relative;
 }
+
+.search-container-mobile {
+  position: relative;
+  order: 0;
+}
   
-#search-container input {
+.search-container input {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -13,7 +23,7 @@
   cursor: text;
 }
 
-#search-container button {
+.search-container button {
   position: absolute;
   right: 20px;
   top: 10px;
@@ -33,3 +43,4 @@
   width: 40px; 
   height: 40px;
 }
+

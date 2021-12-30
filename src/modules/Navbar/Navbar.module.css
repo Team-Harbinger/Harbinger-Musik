@@ -1,58 +1,178 @@
-.navbar-items {
-  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(6, 6, 7) 100%);
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* 
+  The actual navbar, just the black bar. At any screen size this bar is still there. 
+  Targets the element that contains everything in the navbar (links, logo, searchbar)
+*/
+.navbar {
+  background-color: black;
+  /* border: 2px yellow solid; */
   height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
   position: fixed;
   width: 100%;
   z-index: 1;
 }
 
-.navbar-logo {
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;  /* 50% of your logo width */
-  display: block;
-  justify-self: center;
-  /* cursor: pointer; */
+/* 
+  Margin doesn't seem to apply to fixed elements like the navbar so we have to
+  have a separate invisible non-fixed element that creates margin between the navbar and the
+  rest of the page, otherwise the rest of the page would just float to the top of the
+  page and overlap with the navbar (since the rest of the page behaves as if fixed
+  elements weren't there)
+*/
+.navbar-margin {
+  margin-bottom: 100px;
+  /* color: white; */
 }
 
-.nav-menu {
+.navbar-app-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.navbar-items {
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(6, 6, 7) 100%);
+  /* border: 2px orange solid; */
+  font-size: 2rem;
+}
+
+/* Targets the container that contains links, logo, searchbar */
+
+.navbar-items-nonmobile {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-items-mobile {
+  /* height: 100%; */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  /* right: 0; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* z-index: -5; */
+  margin-top: 100px; /* so it doesn't overlap with the base navbar */
+}
+
+.navbar-items-mobile-expanded {
+  padding-top: 40px;
+  height: 225px;
+  transition: height 0.5s;
+}
+
+/* 
+  This class is added when navbar is collapsed by button click.
+  The reason I don't just have one class handling everything is
+  because I don't want an animation to play on screen resize.
+  I only want an animation when the navbar is clicked by the user.
+
+  So I have a class specifically for when media query triggers
+  navbar collapse (no animation), and one class specifically for when 
+  button click triggers navbar collapse (animation).
+*/
+
+.navbar-items-mobile-collapsed-by-button {
+  transition: height 0.5s;
+  height: 0px;
+}
+
+/* 
+  This class is added when navbar is collapsed by media query.
+  The reason I don't just have one class handling everything is
+  because I don't want an animation to play on screen resize.
+  I only want an animation when the navbar is clicked by the user.
+
+  So I have a class specifically for when media query triggers
+  navbar collapse (no animation), and one class specifically for when 
+  button click triggers navbar collapse (animation).
+*/
+
+.navbar-items-mobile-collapsed-by-media-query {
+  height: 0px;
+}
+
+.navbar-clickable-links {
+  /* border: 2px pink solid; */
+}
+
+.navbar-clickable-links ul {
+  /* border: 2px yellow solid; */
+  padding-left: 0; /* removes default left padding on ul elements */
+  list-style: none;
+}
+
+.navbar-clickable-links-nonmobile ul {
   display: grid;
   grid-template-columns: repeat(5,auto);
   grid-gap: 10px;
-  list-style: none;
-  text-align: center;
+  text-align: center; 
   width: 70vw;
-  justify-content: start;
+  justify-content: flex-start;
   margin-right: 2rem;
 }
 
-.nav-links {
+.navbar-clickable-links-mobile {
+  /* border: 2px red solid; */
+  width: 100%;
+  order: 1;
+}
+
+.navbar-clickable-links-mobile ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  align-self: stretch;
+  order: 0;
+} 
+
+.navbar-clickable-links-mobile ul li {
+  margin-top: 20px;
+} 
+
+/* an individual link in the clickable links section */
+.nav-link {
   color: #EEEEEE;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  /* border: 2px red dotted; */
 }
 
-.nav-links:hover {
+.nav-link:hover {
   background-color:violet;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
 
-/* coming soon */
-.nav-links-mobile { 
-  display: none;
+#dropdown-menu-button {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  border: none;
+  /* display: none; */
 }
 
-/* 
-  This is needed so the navbar
-  does not cover the rest of the
-  webpage's content
-*/
-.navbar-margin {
-  margin-bottom: 100px;
-  color: white;
+#dropdown-menu-button img {
+  height: 50px;
+  width: 50px;
 }
