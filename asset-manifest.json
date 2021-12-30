@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/Harbinger-Musik/static/css/main.c2ad4381.chunk.css",
-    "main.js": "/Harbinger-Musik/static/js/main.4130cef5.chunk.js",
-    "main.js.map": "/Harbinger-Musik/static/js/main.4130cef5.chunk.js.map",
+    "main.css": "/Harbinger-Musik/static/css/main.76d90466.chunk.css",
+    "main.js": "/Harbinger-Musik/static/js/main.ace86208.chunk.js",
+    "main.js.map": "/Harbinger-Musik/static/js/main.ace86208.chunk.js.map",
     "runtime-main.js": "/Harbinger-Musik/static/js/runtime-main.fa098b6b.js",
     "runtime-main.js.map": "/Harbinger-Musik/static/js/runtime-main.fa098b6b.js.map",
-    "static/js/2.2ca17176.chunk.js": "/Harbinger-Musik/static/js/2.2ca17176.chunk.js",
-    "static/js/2.2ca17176.chunk.js.map": "/Harbinger-Musik/static/js/2.2ca17176.chunk.js.map",
+    "static/js/2.86946762.chunk.js": "/Harbinger-Musik/static/js/2.86946762.chunk.js",
+    "static/js/2.86946762.chunk.js.map": "/Harbinger-Musik/static/js/2.86946762.chunk.js.map",
     "static/js/3.5bb3f7a4.chunk.js": "/Harbinger-Musik/static/js/3.5bb3f7a4.chunk.js",
     "static/js/3.5bb3f7a4.chunk.js.map": "/Harbinger-Musik/static/js/3.5bb3f7a4.chunk.js.map",
     "index.html": "/Harbinger-Musik/index.html",
-    "static/css/main.c2ad4381.chunk.css.map": "/Harbinger-Musik/static/css/main.c2ad4381.chunk.css.map",
-    "static/js/2.2ca17176.chunk.js.LICENSE.txt": "/Harbinger-Musik/static/js/2.2ca17176.chunk.js.LICENSE.txt",
+    "static/css/main.76d90466.chunk.css.map": "/Harbinger-Musik/static/css/main.76d90466.chunk.css.map",
+    "static/js/2.86946762.chunk.js.LICENSE.txt": "/Harbinger-Musik/static/js/2.86946762.chunk.js.LICENSE.txt",
     "static/media/applogo.554586c0.svg": "/Harbinger-Musik/static/media/applogo.554586c0.svg",
+    "static/media/icons8-close.c84cc561.svg": "/Harbinger-Musik/static/media/icons8-close.c84cc561.svg",
+    "static/media/icons8-menu.151ef2b7.svg": "/Harbinger-Musik/static/media/icons8-menu.151ef2b7.svg",
     "static/media/napster-alternative-image.c5b419a0.jpg": "/Harbinger-Musik/static/media/napster-alternative-image.c5b419a0.jpg",
     "static/media/napster-blues-image.a2e5e18a.jpg": "/Harbinger-Musik/static/media/napster-blues-image.a2e5e18a.jpg",
     "static/media/napster-children-image.8ccb04fc.jpg": "/Harbinger-Musik/static/media/napster-children-image.8ccb04fc.jpg",
@@ -22,6 +24,7 @@
     "static/media/napster-country-image.9063a4b8.jpg": "/Harbinger-Musik/static/media/napster-country-image.9063a4b8.jpg",
     "static/media/napster-electronic-image.68169a97.jpg": "/Harbinger-Musik/static/media/napster-electronic-image.68169a97.jpg",
     "static/media/napster-folk-image.98439986.jpg": "/Harbinger-Musik/static/media/napster-folk-image.98439986.jpg",
+    "static/media/napster-holiday-music-image.b0ff7aec.png": "/Harbinger-Musik/static/media/napster-holiday-music-image.b0ff7aec.png",
     "static/media/napster-jazz-image.b4328145.jpg": "/Harbinger-Musik/static/media/napster-jazz-image.b4328145.jpg",
     "static/media/napster-latin-image.8e1fe868.jpg": "/Harbinger-Musik/static/media/napster-latin-image.8e1fe868.jpg",
     "static/media/napster-metal-image.8bb577fd.jpg": "/Harbinger-Musik/static/media/napster-metal-image.8bb577fd.jpg",
@@ -41,8 +44,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fa098b6b.js",
-    "static/js/2.2ca17176.chunk.js",
-    "static/css/main.c2ad4381.chunk.css",
-    "static/js/main.4130cef5.chunk.js"
+    "static/js/2.86946762.chunk.js",
+    "static/css/main.76d90466.chunk.css",
+    "static/js/main.ace86208.chunk.js"
   ]
 }
