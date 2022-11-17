@@ -60,7 +60,7 @@ function Genre(props) {
       .then(function (response) {
         genreDetails.genreImageSrc = genreImages[genreDetails.genreName];
         setGenreDetailsData([genreDetails]);
-        return fetch("https://api.napster.com/v2.2/genres/" + genreID + "/tracks/top?apikey=" + props.NAPSTER_API_KEY);
+        return fetch("https://api.napster.com/v2/genres/" + genreID + "/tracks/top?apikey=" + props.NAPSTER_API_KEY);
       })
       .then(function (response) {
         // Albums API successful response
